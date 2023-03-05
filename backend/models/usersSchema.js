@@ -10,6 +10,8 @@ const usersSchema = new mongoose.Schema({
   City: { type: String },
   phoneNumber: { required: true, type: Number },
   role: { type: mongoose.Schema.Types.ObjectId, ref: "role" },
+  product:[ { type: mongoose.Schema.Types.ObjectId, ref: "Cart" }]
+  
 });
 usersSchema.pre('save', async function(){
   this.email=this.email.toLowerCase()
