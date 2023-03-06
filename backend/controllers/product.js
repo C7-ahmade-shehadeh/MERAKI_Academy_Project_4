@@ -1,46 +1,61 @@
-const moduleProduct=require('../models/productSchema')
+const moduleProduct = require("../models/productSchema");
 
-const addproduct=(req,res)=>{
-const {kind,
+const addproduct = (req, res) => {
+  const { kind, name, price, delivery, state,
+     manufacturingyear, description } =
+    req.body;
+  const newproduct = new moduleProduct({
+    kind,
     name,
     price,
     delivery,
     state,
     manufacturingyear,
-    description}=req.body
-    const newproduct=new moduleProduct(
-        {kind,
-    name,
-    price,
-    delivery,
-    state,
-    manufacturingyear,
-    description}) 
-    newproduct
+    description,
+  });
+  newproduct
     .save()
-        .then(result=>{
-res.status(200).json({message:"add to product successfully"
-,result})
-        })
-    .catch(err =>{
-res.status(403).json(err)
-
+    .then((result) => {
+      res.status(200).json(
+        { message: "add to product successfully", result });
     })
-}
-const Deleteproduct=(req,res)=>{
-const _id =req.params.id
-console.log(_id);
-moduleProduct
-.findByIdAndDelete(_id)
-.then(result=>{
-    res.status(200).json(
-        {message:"delete product successfully"})
-
+    .catch((err) => {
+      res.status(403).json(err);
+    });
+};
+const Deleteproduct = (req, res) => {
+  const _id = req.params.id;
+  console.log(_id);
+  moduleProduct
+    .findByIdAndDelete(_id)
+    .then((result) => {
+      res.status(200).json({ message: "delete product successfully" });
+    })
+    .catch((err) => {
+      res.json({ err: err });
+    });
+};
+const getallproduct = (req, res) => {
+  moduleProduct
+    .find()
+    .then((result) => {
+      res.status(200).json({
+        result,
+      });
+    })
+    .catch((err) => {
+      res.status(403).json({ err: err });
+    });
+};
+const updateproduct=(req,res)=>{
+    const _id =req.params.id
+    moduleProduct
+    .findByIdAndUpdate(_id,{name:'ahamd'})
+    .then(result=>{
+res.json(result)
+    })
+.catch(err =>{
+  res.json(err)
 })
-.catch(err=>{
-    res.json({'err':err})
-
-})
 }
-
-module.exports={addproduct,Deleteproduct}
+module.exports = { addproduct, Deleteproduct, getallproduct,updateproduct };

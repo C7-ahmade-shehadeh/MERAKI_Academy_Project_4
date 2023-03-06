@@ -1,13 +1,15 @@
 const modulecart = require("../models/cartSchema");
 
 const addcart = (req, res) => {
-    console.log(req.token);  
-  const { product, user } = req.body;
-  const newcart = new modulecart({ product, user });
+    console.log("req.token: 4",req.token);  
+  const { product } = req.body;
+  const userId  = req.token.userId;
+  const newcart = new modulecart({ product,userId });
   newcart
     .save()
 
     .then((result) => {
+      console.log("result:12 ",result);
       res.status(200).json({
         message: "add to cart successfully",
         result,

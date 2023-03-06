@@ -55,14 +55,15 @@ const login = (req, res) => {
             
             firstName: result.firstName,
             userId: result._id,
-            role:result.role,
+            role:result.role
           };
           const options={
             expiresIn:TOKEN_EXP_TIME
+            // 
           }
           const token=jwt.sign(payload,SECRET,options)
-        
-          console.log("this.token",this.token);
+        console.log("result: ",result);
+        console.log("payload: ",payload);
           res.status(200).json({
             success: true,
             message: `Valid login credentials`,
@@ -77,10 +78,7 @@ const login = (req, res) => {
         });
         console.log("error", error);
       }
-      // console.log("iscompare",iscompare);
-
-      console.log("result.password", result.password);
-      console.log("password", password);
+      
     });
 };
 
