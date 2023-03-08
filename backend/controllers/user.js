@@ -22,7 +22,7 @@ const register = (req, res) => {
     })
     .catch((err) => {
       console.log(err, 0);
-      res.json(err.message);
+      res.status(500).json(err.message);
     });
 };
 const login = (req, res) => {
@@ -30,17 +30,17 @@ const login = (req, res) => {
   usersSchema
     .findOne({ email })
     .populate("role")
-    // .populate("Cart")
+    .populate("product")
     .then(async (result) => {
      
         const SECRET=process.env.SECRET
         const TOKEN_EXP_TIME=process.env.TOKEN_EXP_Time
       if (!result) {
-        res.status(403).json({
+        res.status(404).json({
           success: false,
           message: `The *email doesn't exist or The password incorrect`,
         });
-      }
+      }else{
       try {
         const iscompare = await bcrypt.compare(password, result.password);
         
@@ -72,13 +72,14 @@ const login = (req, res) => {
           });
         
       } catch (error) {
-        res.status(403).json({
+        res.status(500).json({
           success: false,
           error,
         });
         console.log("error", error);
       }
       
+    }
     });
 };
 

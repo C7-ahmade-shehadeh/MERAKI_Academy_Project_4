@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 
 const authentication = (req, res, next) => {
-  console.log("SECRET: ", process.env.SECRET);
   try {
     if (!req.headers.authorization) {
       res.status(403).json("Forbidden");

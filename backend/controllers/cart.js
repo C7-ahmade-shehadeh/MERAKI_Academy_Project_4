@@ -20,12 +20,13 @@ const addcart = (req, res) => {
     });
 };
 const getcart = (req, res) => {
-// const _id =req.params.id
+  const userId  = req.token.userId;
+console.log(userId);
     
   modulecart
-    .find()
+    .find({userId:userId})
     .populate("product")
-    .populate("user")
+    .populate("userId")
     .then((result) => {
       res.status(200).json({
        
