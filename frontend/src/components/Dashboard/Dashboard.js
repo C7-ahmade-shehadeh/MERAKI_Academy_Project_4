@@ -1,96 +1,300 @@
-import React,{useEffect,useState} from 'react'
-import axios from 'axios'
-import {Button,Card} from 'react-bootstrap';
-import './Dashboard.css' 
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Button, Card } from "react-bootstrap";
+import { SvgIcon } from "@mui/material";
+import "./Dashboard.css";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import Badge from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const Dashboard = () => {
-    const token=localStorage.getItem('token')
-    const [products, setProducts] = useState('')
-const [userId, setUserId] = useState('')
-//todo function Deleteproduct
-const Deleteproduct=(_id)=>{
-    axios.delete(`http://localhost:5000/product/delete/${_id}`
-        ,{headers: {
-            authorization: `Bearer ${token}`,},})
-        .then((res) => {
-            const newarrproduct=products.filter(product =>{
-                console.log('_id: ',_id,'id:',product._id);
-                return _id !== product._id
-            })
-            console.log('in Deleteproduct:' ,newarrproduct);
-            console.log(products);                       setProducts(newarrproduct)
+  const token = localStorage.getItem("token");
+  const [products, setProducts] = useState("");
+  const [userId, setUserId] = useState("");
+  const [add, setAdd] = useState(false);
+  //? == productSchema ======================
+  const [kind, setKind] = useState("");
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [delivery, setDelivery] = useState("");
+  const [state, setState] = useState("");
+  const [manufacturingyear, setManufacturingyear] = useState("");
+  const [description, setDescription] = useState("");
+  const [img, setImg] = useState("");
+  //? ==============================================
+  //todo function AddTovart
+  const addTocart = (Product) => {
+    axios
+      .post(`http://localhost:5000/cart/add`, Product, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //todo function AddProduct
+  const AddProduct = () => {
+    console.log(token);
+    const newproduct = {
+      kind,
+      name,
+      price,
+      delivery,
+      state,
+      manufacturingyear,
+      description,
+      img,
+    };
+    console.log("newproduct: ", newproduct);
+    axios
+      .post(`http://localhost:5000/product/add`, newproduct, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        const newarrproduct = [...products, newproduct];
 
-
-        }).catch(err =>{
-            console.log(err);
-        })
-}
-//!==useEffect===
-    useEffect(() => {
-        console.log("token",token);
-        axios.get(`http://localhost:5000/product`
-        ,{headers: {
-            authorization: `Bearer ${token}`,},})
-        .then((res) => {
-            console.log(res.data.result);
-            setUserId(res.data.userId)
-            setProducts(res.data.result);
-            console.log('products',products);
-        }).catch(err =>{
-            console.log(err);
-        })
-      }, []);
+        console.log(res);
+        console.log("newarrproductsdsd:", newarrproduct);
+        setProducts(newarrproduct);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //todo function Deleteproduct
+  const Deleteproduct = (_id) => {
+    axios
+      .delete(`http://localhost:5000/product/delete/${_id}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        const newarrproduct = products.filter((product) => {
+          console.log("_id: ", _id, "id:", product._id);
+          return _id !== product._id;
+        });
+        console.log("in Deleteproduct:", newarrproduct);
+        console.log(products);
+        setProducts(newarrproduct);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //!==useEffect===
+  useEffect(() => {
+    console.log("token", token);
+    axios
+      .get(`http://localhost:5000/product`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data.result);
+        setUserId(res.data.userId);
+        setProducts(res.data.result);
+        console.log("products", products);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  //?====Deleteproduct return ===========
   return (
-    <div > 
-        <div className='headerDashbord'>
-        <h1>Dashboard</h1>
-        <Button variant="success">Add Product </Button>
-        
-        
-        </div>
-    <div className='product'>
-     {products && products .map((product,i)=>{
-        return(
-            <div key={product._id} >
-       <Card className="text-center">
-      <Card.Header as="h5">{product.kind}</Card.Header>
-      <Card.Body>
-        <Card.Title>{product.name}</Card.Title>
-        <Card.Text>
-        {product.description}        
-        <p> manufacturingyear: {product.manufacturingyear}</p>
-        <p> price: {product.price}</p>
-        
-        </Card.Text>
-        <Button variant="primary">add to cart</Button>
-        <Button variant="danger" onClick={()=>{
-            console.log('in 54');
-            Deleteproduct(product._id)
-        }} >Delete</Button>
-      </Card.Body>
-      <Card.Footer className="text-muted">delivery: {product.delivery} state: {product.state}</Card.Footer>
-      <Card.Img variant="bottom" src={product.img} />
-    </Card>
-        </div>
-        )
-    })}
+    <div>
+      <div className="headerDashbord">
+        <div className="headardash">
+    <h1>Dashboard</h1>
     </div>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <div>
+        <Button variant="outline-primary" 
+        onClick={() => {}}>
+          <Badge  badgeContent={3} color="primary">
+            <ShoppingCartIcon color="action"/>
+          </Badge>{" "}
+        </Button>{" "}
+        {add ? (
+          <>
+            <Card className="text-center">
+              <Card.Header as="h5">
+                <input
+                  type={"text"}
+                  placeholder="kind .."
+                  onChange={(e) => {
+                    setKind(e.target.value);
+                  }}
+                ></input>
+              </Card.Header>
+              <Card.Body>
+                <Card.Title>
+                  <input
+                    type={"text"}
+                    placeholder="name .."
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
+                  ></input>
+                </Card.Title>
+                <Card.Text>
+                  <textarea
+                    type={"text"}
+                    placeholder="description .."
+                    onChange={(e) => {
+                      setDescription(e.target.value);
+                    }}
+                  ></textarea>
+                  <p>
+                    {" "}
+                    <input
+                      type={"text"}
+                      placeholder="manufacturingyear .."
+                      onChange={(e) => {
+                        setManufacturingyear(e.target.value);
+                      }}
+                    ></input>
+                  </p>
+                  <p>
+                    {" "}
+                    <input
+                      type={"text"}
+                      placeholder="price .."
+                      onChange={(e) => {
+                        setPrice(e.target.value);
+                      }}
+                    ></input>
+                  </p>
+                </Card.Text>
+              </Card.Body>
+              <Card.Footer>
+                <p>
+                  {" "}
+                  <input
+                    type={"text"}
+                    placeholder="delivery :yes/no"
+                    onChange={(e) => {
+                      setDelivery(e.target.value);
+                    }}
+                  ></input>
+                </p>{" "}
+                <p>
+                  {" "}
+                  <input
+                    type={"text"}
+                    placeholder="state:new/used"
+                    onChange={(e) => {
+                      setState(e.target.value);
+                    }}
+                  ></input>
+                </p>
+                <input
+                  type="text"
+                  placeholder="add imge"
+                  onChange={(e) => {
+                    setImg(e.target.value);
+                  }}
+                ></input>
+                <br></br>
+                <Button
+                  variant="warning"
+                  onClick={() => {
+                    setAdd(false);
+                  }}
+                >
+                  {" "}
+                  <ArrowBackOutlinedIcon />
+                  back
+                </Button>
+                {"    "}
+                <Button
+                  variant="success"
+                  onClick={() => {
+                    AddProduct();
+                    setAdd(false);
+                  }}
+                >
+                  {" "}
+                  <AddCircleOutlineOutlinedIcon />
+                </Button>
+              </Card.Footer>
+            </Card>
+          </>
+        ) : (
+          <>
+            {"  "}
+            <Button
+              className="btnheader"
+              variant="success"
+              onClick={() => {
+                setAdd(true);
+              }}
+            >
+              {" "}
+              <AddCircleOutlineOutlinedIcon />
+              Product
+            </Button>
+          </>
+        )}
+        </div>
+      </div>
+      <div className="product">
+        {products &&
+          products.map((product, i) => {
+            return (
+              <div key={product._id}>
+                <Card className="text-center">
+                  <Card.Header as="h5">{product.kind}</Card.Header>
+                  <Card.Body className="bodycard">
+                    <Card.Title>{product.name}</Card.Title>
+                    <Card.Text>
+                      {product.description}
+                      <p> manufacturingyear: {product.manufacturingyear}</p>
+                      <p> price: {product.price}</p>
+                    </Card.Text>
+                    <Button
+                      variant="outline-primary"
+                      onClick={() => {
+                        addTocart(product);
+                      }}
+                    >
+                      <AddShoppingCartIcon />
+                    </Button>{" "}
+                    <Button
+                      variant="outline-danger"
+                      onClick={() => {
+                        console.log("in 54");
+                        Deleteproduct(product._id);
+                      }}
+                    >
+                      <DeleteOutlineOutlinedIcon />
+                    </Button>
+                  </Card.Body>
+                  <Card.Footer className="text-muted">
+                    delivery: {product.delivery} state: {product.state}
+                  </Card.Footer>
+                  <Card.Img
+                    variant="bottom"
+                    className="imgcard"
+                    src={product.img}
+                  />
+                </Card>
+              </div>
+            );
+          })}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

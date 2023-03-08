@@ -16,7 +16,8 @@ const Login = () => {
   const handelLogin = () => {
     
     axios
-      .post("http://localhost:5000/user/login", user)
+      .post("http://localhost:5000/user/login",
+       user)
       .then((result) => {
         console.log(result.data.token);
         const token =result.data.token

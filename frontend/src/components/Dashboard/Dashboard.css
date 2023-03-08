@@ -7,5 +7,17 @@
 }
 .headerDashbord{
     display: flex;
-    justify-content: space-around;
+    justify-content:space-between;
 }
+.imgcard{
+width: 40vw;
+height: 40vh;
+}
+.bodycard{
+    width: 45vw;
+    height: 45vh;
+}
+.headardash{
+    margin-left: 1vw;
+}
+
