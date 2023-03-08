@@ -1,0 +1,11 @@
+.product{
+    color: brown;
+    display: grid;
+    grid-template-columns: 1fr 1fr  ;
+    grid-template-rows: auto;
+    padding: 10px;
+}
+.headerDashbord{
+    display: flex;
+    justify-content: space-around;
+}
