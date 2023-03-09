@@ -4,20 +4,22 @@ import { Link } from 'react-router-dom'
 
 import './Navbar.css'
 const Navbar = () => {
+  const token=localStorage.getItem('token')
+  console.log('token:nav',token);
   return (
     <div  className="Navbar">
-    
     <Nav variant="tabs" className="Navbar">
-      <Nav.Item>
+    {!token ? <><Nav.Item>
         <Nav.Link href="/Register" className='componentnav'>Register</Nav.Link>
       </Nav.Item>
       
       <Nav.Item>
         <Nav.Link href="/Login"className='componentnav'>Login</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
+      </Nav.Item></>:<><Nav.Item>
         <Nav.Link href="/Dashboard" className='componentnav'>Dashboard</Nav.Link>
-      </Nav.Item>
+      </Nav.Item></>}
+      
+      
       
     </Nav>
   </div>
