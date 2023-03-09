@@ -1,4 +1,6 @@
 const moduleProduct = require("../models/productSchema");
+const modulecart = require("../models/cartSchema");
+
 
 const addproduct = (req, res) => {
   const { kind, name, price, 
@@ -29,7 +31,12 @@ const Deleteproduct = (req, res) => {
   moduleProduct
     .findByIdAndDelete(_id)
     .then((result) => {
+      modulecart.deleteMany({product:_id})
+      .then((result) => { 
       res.status(200).json({ message: "delete product successfully" });
+    }).catch((err) => {
+      res.json({ err: err });
+    });
     })
     .catch((err) => {
       res.json({ err: err });
