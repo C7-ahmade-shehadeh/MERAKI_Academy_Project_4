@@ -1,6 +1,10 @@
 .Navbar{
    text-align: center;
    border: 1px blue solid;
+   /* display: flex; */
+   justify-content:space-between;
+
+
 }
 .componentnav{
     color: #5D23F9;
