@@ -1,23 +1,142 @@
 .product{
-    color: brown;
+    color: #0082ef;
     display: grid;
-    grid-template-columns: 1fr 1fr  ;
+    grid-template-columns: 1fr 1fr 1fr ;
     grid-template-rows: auto;
     padding: 10px;
+   
+
 }
 .headerDashbord{
     display: flex;
     justify-content:space-between;
+    
+/* background: #0082ef; */
+   
+}
+.catagory{
+    text-decoration: none;
+    padding-right:16px ;
+    font-size: 17px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+text-transform: uppercase;
+color: white;
+}
+.catagory:hover {
+    background: white;
+    transition: 0.5s;
+    border-radius: 10px;
+    border: none;
+    color: #1b9bff;
+  }
+.h1{
+    color: #0082ef;
 }
 .imgcard{
-width: 40vw;
-height: 40vh;
+width: 30vw;
+height: 30vh;
+border-radius: 30%;
 }
 .bodycard{
-    width: 45vw;
-    height: 45vh;
+   
+    height: 35vh;
+    background: white;
+
 }
 .headardash{
     margin-left: 1vw;
+    
 }
+.card{
+    margin: 2px;
+    margin-bottom: 2vh;
+    border-radius: 20px;
+   
+    
+    
+}
+.card:hover{
+   
+
+ box-shadow:2px 2px 2px 2px blue inset;
+    border-radius:50px ;
+    transition: 0.5;
+   
+}
+.imgcard{
+    width: 40vw;
+    height: 40vh;
+
+}
+.imgcard:hover{
+opacity: 0.2;
+}
+
+.bodycard:hover{
+   
+opacity:1;
+}
+@media screen and (max-width: 600px) {
+    .product{
+        color: #0082ef;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 0;
+    }
+    .bodycard{
+        width: 80vw;
+        height: 35vh;
+        background: white;
+    align-self: center;
+    }
+  }
+  @media screen and (max-width: 200px) {
+    .product{
+        color: blue;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      
+       
+    
+    }
+    .bodycard{
+        width: 100vw;
+        height: 33vh;
+        background: white;
+    align-self: center;
+    font-size: small;
+    }
+    .imgcard{
+        width: 100vw;
+        height: 20vh;
+    
+    }
+    .cardheader{
+        margin-left: 1vw;
+        font-size:15px;
+        
+    }
+    .cardTitle{
+        font-size:7px;
+       
+        padding: 0;
+    }
+    .card{
+        margin: 0px;
+        margin-bottom: 0vh;
+        border-radius: 0px;
+       padding: 0;
+        
+        
+    }
+    .Button{
+        size: 'sm';
+    }
+    .h1{
+        font-size: small;
+        color: red;
+    }
+  }
 

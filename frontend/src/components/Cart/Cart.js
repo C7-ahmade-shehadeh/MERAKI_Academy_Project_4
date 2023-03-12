@@ -12,6 +12,8 @@ import { UserContext } from "../../App";
 const Cart = () => {
  const {setCartL}=useContext(UserContext)
   const [cart, setCart] = useState("");
+  const [total, setTotal] = useState(0)
+  const [price, setPrice] = useState('')
   const token = localStorage.getItem("token");
   //todo function DeleteproductCart
   const DeleteproductCart = (_id) => {
@@ -24,8 +26,8 @@ const Cart = () => {
       })
       .then((res) => {
         const newarrproduct = cart.filter((elem) => {
-          console.log("_id: ", _id, "id:", elem.product._id);
-          return _id !== elem.product._id;
+          console.log("_id: ", _id, "id:", elem._id);
+          return _id !== elem._id;
         });
         console.log("in Deleteproduct:", newarrproduct);
         console.log(cart);
@@ -59,16 +61,19 @@ console.log('cart.length',cart.length);
 setCartL(cart.length)
   return (
     <div>
-      <div className="total"><p>Toltal : {sumprice}$</p></div>
+      <div className="total"><p>Total : {sumprice}$</p></div>
       <div className="product">
         {console.log("cart", cart)}
 
         {cart.length > 0 ? (
           cart &&
-          cart.map((elem) => {
-           
+          cart.map((elem,i) => {
+            let newprice=elem.product.price;
           let price =parseInt( elem.product.price,10);
-          sumprice+=price
+        //  if (i <= cart.length) {
+        //   setTotal(price)
+        //  }
+          
           console.log('sumprice:',sumprice);
             return (
               <Card key={elem.product._id} className="text-center">
@@ -78,18 +83,23 @@ setCartL(cart.length)
                   <Card.Text>
                     {elem.product.description}
                     <p> manufacturingyear: {elem.product.manufacturingyear}</p>
-                    <p> price: {elem.product.price}$</p>
+                    <p> price: {price}$</p>
                     
                   </Card.Text>
-                  <Button variant="outline-primary">buying</Button>
+                  <Button variant="outline-success">buying</Button>
                   <Button
                     variant="outline-danger"
                     onClick={() => {
-                      DeleteproductCart(elem.product._id);
+                      DeleteproductCart(elem._id);
                     }}
                   >
                     <DeleteOutlineOutlinedIcon />
                   </Button>
+                  <Button variant="secondary" onClick={()=>{
+                    
+                    newprice= price+price
+                    setPrice(newprice)
+                  }}>+</Button>
                 </Card.Body>
                 <Card.Footer className="text-muted">
                   delivery: {elem.product.delivery} state: {elem.product.state}

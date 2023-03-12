@@ -6,9 +6,11 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
   const [products, setProducts] = useState("");
   const [userId, setUserId] = useState("");
   const [add, setAdd] = useState(false);
@@ -113,6 +115,7 @@ const Dashboard = () => {
   };
   //!==useEffect===
   useEffect(() => {
+  
     axios
       .get(`http://localhost:5000/product`, {
         headers: {
@@ -132,11 +135,12 @@ const Dashboard = () => {
     <div>
       <div className="headerDashbord">
         <div className="headardash">
-          <h1>Dashboard</h1>
+        
+        
         </div>
         <div>
-          
-          {add ? (
+         { console.log(role)}
+          {role == 'UDMIN'  ? add ? (
             <>
               <Card className="text-center">
                 <Card.Header as="h5">
@@ -246,7 +250,7 @@ const Dashboard = () => {
               {"  "}
               <Button
                 className="btnheader"
-                variant="success"
+                variant="primary"
                 onClick={() => {
                   setAdd(true);
                 }}
@@ -256,7 +260,7 @@ const Dashboard = () => {
                 Product
               </Button>
             </>
-          )}
+          ):<></>}
         </div>
       </div>
       <div className="product">
@@ -264,13 +268,14 @@ const Dashboard = () => {
           products.map((product, i) => {
             return (
               <div key={product._id}>
-                <Card className="text-center">
-                  <Card.Header as="h5">{product.kind}</Card.Header>
+                <Card className="text-center card">
+                  <Card.Header className="cardheader" as="h5">{product.kind}</Card.Header>
                   <Card.Body className="bodycard">
-                    <Card.Title>{product.name}</Card.Title>
+                  
+                    <Card.Title className="cardTitle" >{product.name}</Card.Title>
                     <Card.Text>
                       {product.description}
-                      <p> manufacturingyear: {product.manufacturingyear}</p>
+                      <p> manu facturing year: {product.manufacturingyear}</p>
                       <p> price: {product.price}$</p>
                     </Card.Text>
                     <Button
@@ -282,17 +287,18 @@ const Dashboard = () => {
                     >
                       <AddShoppingCartIcon />
                     </Button>{" "}
-                    <Button
+                    {role == 'UDMIN' ?<Button
                       variant="outline-danger"
                       onClick={() => {
                         Deleteproduct(product._id);
                       }}
                     >
                       <DeleteOutlineOutlinedIcon />
-                    </Button>
+                    </Button>: <></>}
+                    
                   </Card.Body>
                   <Card.Footer className="text-muted">
-                    delivery: {product.delivery} state: {product.state}
+                    delivery: {product.delivery}{'  '}state: {product.state}
                   </Card.Footer>
                   <Card.Img 
                     variant="bottom"
@@ -310,3 +316,12 @@ const Dashboard = () => {
 
 export default Dashboard;
 
+//**  <div >
+/* <Link className="catagory" to={'/'}>T-Shitr</Link>
+<Link className="catagory" to={'/'}>Jeans</Link>
+<Link className="catagory" to={'/'}>Shoes</Link>
+ <Link className="catagory" to={'/'}>Jacket</Link>
+
+
+
+</div>*/ 

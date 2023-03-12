@@ -19,9 +19,13 @@ const Login = () => {
       .post("http://localhost:5000/user/login",
        user)
       .then((result) => {
-        console.log(result.data.token);
+        console.log(result.data.role.role);
+        const role = result.data.role.role
         const token =result.data.token
+       
+        localStorage.setItem('role',role)
         localStorage.setItem('token',token)
+        navigate("/Dashboard")
         setDone(true);
       })
       .catch((err) => {

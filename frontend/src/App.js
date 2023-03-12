@@ -10,14 +10,15 @@ import Cart from "./components/Cart/Cart";
 export const UserContext =createContext()
 function App() {
   const [cartL, setCartL] = useState(0)
+//E-Commerce Website }
+
   return (
     <div className="App">
       <UserContext.Provider value={{cartL,setCartL}}>
       <header className="App-header">
-        <h1>E-Commerce Website </h1>
+       
       </header>
-
-      <Navbar/>
+      <Navbar className='nav'/>
       <Routes>
 <Route path='/Register' element={<Register/>} />
 <Route path='/Login' element={<Login/>}/>

@@ -1,12 +1,92 @@
-.Navbar{
-   text-align: center;
-   border: 1px blue solid;
-   /* display: flex; */
-   justify-content:space-between;
-
+*{
+    padding: 0;
+    margin: 0;
 
 }
-.componentnav{
-    color: #5D23F9;
 
+.logo {
+  color: white;
+  font-size: 30px;
+  align-self: center;
+  padding: 3vw;
+ 
+font-weight: 200PX;
+  font-weight: 20px;
+}
+.Navbar {
+  display: flex;
+position: sticky;
+top: 0;
+  justify-content: space-between;
+
+  background: #0082ef;
+  height: 80px;
+  width: 100%;
+  color: white;
+  border-radius: 10px;
+  
+}
+.componentnav {
+  color: white;
+  font-size: 17px;
+  margin: 0 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  align-self: center;
+}
+.loginAndRegistar{
+  align-self: center;
+
+}
+.componentnav:hover {
+  background: white;
+  transition: 0.5s;
+  border-radius: 10px;
+  border: none;
+  color: #1b9bff;
+}
+.ShoppingIcon {
+  color: #1b9bff;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 20px;
+  border: none;
+}
+@media screen and (max-width: 200px) {
+  .logo {
+    color: white;
+    font-size:15px;
+    align-self: center;
+  font-weight: 200PX;
+    
+  }
+  .Navbar {
+  display: grid;
+  grid-template-rows: 1fr;
+justify-content:flex-start;
+background: #0082ef;
+  height: 40px;
+  width: 100%;
+  color: white;
+  
+}
+}
+@media screen and (max-width: 500px) {
+  .logo {
+    color: white;
+    font-size:15px;
+    align-self: center;
+  font-weight: 200PX;
+    
+  }
+  .Navbar {
+  display: grid;
+  grid-template-rows: 1fr;
+justify-content:flex-start;
+background: #0082ef;
+  height: 65px;
+  width: 100%;
+  color: white;
+  
+}
 }
