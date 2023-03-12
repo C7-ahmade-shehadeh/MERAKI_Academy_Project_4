@@ -30,7 +30,7 @@ const Navbar = () => {
 
               <Link to="/Cart">
                 <button className="ShoppingIcon componentnav">
-                  <Badge badgeContent={cartL} max={9}>
+                  <Badge badgeContent={cartL} max={9} color="info">
                     <ShoppingCartOutlinedIcon className="ShoppingIcon" />
                   </Badge>{" "}
                 </button>{" "}
@@ -46,8 +46,8 @@ const Navbar = () => {
 
               <Link to="/Cart">
                 <button className="ShoppingIcon">
-                  <Badge badgeContent={cartL} max={9}>
-                    <ShoppingCartOutlinedIcon className="ShoppingIcon" />
+                  <Badge  badgeContent={cartL} max={9}>
+                    <ShoppingCartOutlinedIcon className="ShoppingIcon"  />
                   </Badge>{" "}
                 </button>{" "}
               </Link>

@@ -52,7 +52,10 @@ top: 0;
   border-radius: 20px;
   border: none;
 }
-@media screen and (max-width: 200px) {
+.badge{
+  color: white;
+}
+@media screen and (max-width: 300px) {
   .logo {
     color: white;
     font-size:15px;
@@ -84,7 +87,7 @@ background: #0082ef;
   grid-template-rows: 1fr;
 justify-content:flex-start;
 background: #0082ef;
-  height: 65px;
+  height: 75px;
   width: 100%;
   color: white;
   

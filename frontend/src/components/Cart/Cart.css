@@ -1,0 +1,72 @@
+.total{
+    background: #0082ef;
+    color: white;
+    font-size: x-large;
+    border-radius: 13px;
+    border: solid 1px;
+height: 33px;
+}
+@media screen and (max-width: 630px) {
+    .product{
+        color: #0082ef;
+        display: grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows: auto;
+        padding: 0;
+    }
+    .bodycard{
+        width: 40vw;
+        height: 37vh;
+        background: white;
+    align-self: center;
+    }
+  }
+  @media screen and (max-width: 481px) {
+    .product{
+        color: blue;
+        display: grid;
+        grid-template-columns:  1fr;
+        grid-template-rows: auto;
+      
+       padding: 0;
+    
+    }
+    .bodycard{
+        width: 100vw;
+        height: 36vh;
+        background: white;
+    align-self: center;
+    font-size: small;
+
+    }
+    .imgcard{
+        width: 100vw;
+        height: 35vh;
+    
+    }
+    .cardheader{
+        margin-left: 1vw;
+        font-size:15px;
+        
+    }
+    .cardTitle{
+        font-size:7px;
+       
+        padding: 0;
+    }
+    .card{
+        margin: 0px;
+        margin-bottom: 0vh;
+        border-radius: 0px;
+       padding: 0;
+        
+        
+    }
+    .Button{
+        size: 'sm';
+    }
+    .h1{
+        font-size: small;
+        color: red;
+    }
+  }

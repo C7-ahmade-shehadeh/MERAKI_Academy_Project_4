@@ -6,6 +6,7 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import { UserContext } from "../../App";
+import './Cart.css'
 //!=====================
 
 //!=============
@@ -13,7 +14,7 @@ const Cart = () => {
  const {setCartL}=useContext(UserContext)
   const [cart, setCart] = useState("");
   const [total, setTotal] = useState(0)
-  const [price, setPrice] = useState('')
+  const [price, setPrice] = useState(0)
   const token = localStorage.getItem("token");
   //todo function DeleteproductCart
   const DeleteproductCart = (_id) => {
@@ -56,25 +57,36 @@ const Cart = () => {
         console.log(err);
       });
   }, []);
-let sumprice=0
+  const Total=(price =0)=>{
+  let Totalprice=
+    cart&& cart.reduce((acc, elem) =>{
+      let price =parseInt( elem.product.price,10);
+      console.log(price);
+      
+    return acc + price
+    },0)
+    Totalprice =Totalprice+price
+    // setTotal(Totalprice)
+    return Totalprice
+  }
+ 
+
 console.log('cart.length',cart.length);
 setCartL(cart.length)
   return (
     <div>
-      <div className="total"><p>Total : {sumprice}$</p></div>
+      <div className="total"><p>Total : {Total()}$</p></div>
       <div className="product">
         {console.log("cart", cart)}
 
         {cart.length > 0 ? (
           cart &&
           cart.map((elem,i) => {
-            let newprice=elem.product.price;
-          let price =parseInt( elem.product.price,10);
-        //  if (i <= cart.length) {
-        //   setTotal(price)
-        //  }
+            // let newprice=elem.product.price;
           
-          console.log('sumprice:',sumprice);
+         
+          
+          
             return (
               <Card key={elem.product._id} className="text-center">
                 <Card.Header>{elem.product.kind}</Card.Header>
@@ -83,7 +95,7 @@ setCartL(cart.length)
                   <Card.Text>
                     {elem.product.description}
                     <p> manufacturingyear: {elem.product.manufacturingyear}</p>
-                    <p> price: {price}$</p>
+                    <p> price: {elem.product.price}$</p>
                     
                   </Card.Text>
                   <Button variant="outline-success">buying</Button>
@@ -96,9 +108,8 @@ setCartL(cart.length)
                     <DeleteOutlineOutlinedIcon />
                   </Button>
                   <Button variant="secondary" onClick={()=>{
+                    Total(elem.product.price)
                     
-                    newprice= price+price
-                    setPrice(newprice)
                   }}>+</Button>
                 </Card.Body>
                 <Card.Footer className="text-muted">
@@ -116,6 +127,7 @@ setCartL(cart.length)
           <></>
         )}
       </div>
+      
     </div>
   );
 };

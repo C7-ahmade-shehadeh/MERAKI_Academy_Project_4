@@ -39,7 +39,7 @@ border-radius: 30%;
 }
 .bodycard{
    
-    height: 35vh;
+    height: 37vh;
     background: white;
 
 }
@@ -76,41 +76,42 @@ opacity: 0.2;
    
 opacity:1;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 471px) {
     .product{
         color: #0082ef;
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr 1fr;
         grid-template-rows: auto;
         padding: 0;
     }
     .bodycard{
-        width: 80vw;
-        height: 35vh;
+        width: 40vw;
+        height: 37vh;
         background: white;
     align-self: center;
     }
   }
-  @media screen and (max-width: 200px) {
+  @media screen and (max-width: 350px) {
     .product{
         color: blue;
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns:  1fr;
         grid-template-rows: auto;
       
-       
+       padding: 0;
     
     }
     .bodycard{
         width: 100vw;
-        height: 33vh;
+        height: 36vh;
         background: white;
     align-self: center;
     font-size: small;
+
     }
     .imgcard{
         width: 100vw;
-        height: 20vh;
+        height: 35vh;
     
     }
     .cardheader{
@@ -139,4 +140,5 @@ opacity:1;
         color: red;
     }
   }
+  
 
