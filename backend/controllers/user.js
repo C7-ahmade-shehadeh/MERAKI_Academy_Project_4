@@ -59,7 +59,7 @@ const login = (req, res) => {
           };
           const options={
             expiresIn:TOKEN_EXP_TIME
-            // 
+           
           }
           const token=jwt.sign(payload,SECRET,options)
         console.log("result: ",result);
@@ -67,19 +67,20 @@ const login = (req, res) => {
           res.status(200).json({
             success: true,
             message: `Valid login credentials`,
-            
+            role:result.role,
             token
           });
         
       } catch (error) {
+        console.log("error", error);
         res.status(500).json({
           success: false,
           error,
         });
-        console.log("error", error);
       }
       
     }
+
     });
 };
 

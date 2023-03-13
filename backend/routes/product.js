@@ -4,6 +4,7 @@ const {
   Deleteproduct,
   getallproduct,
   updateproduct,
+  search,
 } = require("../controllers/product");
 const authentication = require("../middleware/Authentication ");
 const authorization = require("../middleware/authorization");
@@ -17,6 +18,7 @@ productRouter.put(
   updateproduct
 );
 productRouter.get("/", authentication, authentication, getallproduct);
+productRouter.get("/search",search);
 productRouter.delete(
   "/delete/:id",
   authentication,

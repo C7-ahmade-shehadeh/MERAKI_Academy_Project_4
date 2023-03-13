@@ -14,8 +14,9 @@ cartRouter.get("/", authentication, getcart);
 cartRouter.delete(
   "/delete/:id",
   authentication,
-  authorization("DELET"),
   Deleteproductincart
 );
 
 module.exports = cartRouter;
+
+

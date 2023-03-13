@@ -56,10 +56,11 @@ const Deleteproductincart = (req, res) => {
   modulecart
     .findByIdAndDelete(_id)
     .then((result) => {
-      res.status(200).json({ message: "delete product successfully" });
+      console.log();
+      res.status(200).json({ message: "delete product",result });
     })
     .catch((err) => {
-      res.json({ err: err });
+      res.status(500).json({ err: err });
     });
 };
 module.exports = { addcart, getcart, Deleteproductincart };

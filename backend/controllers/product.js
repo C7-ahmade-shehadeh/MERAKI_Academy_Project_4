@@ -69,4 +69,19 @@ const updateproduct = (req, res) => {
       res.json(err);
     });
 };
-module.exports = { addproduct, Deleteproduct, getallproduct, updateproduct };
+// .find({$or :[{description:new RegExp('^'+ searchItem +'$')}] })
+const search = (req, res) => {
+  const {searchItem} = req.body;
+  moduleProduct
+    .find({description: new RegExp( searchItem)})
+    .then((result) => {
+      res.status(200).json({message: "Search Complete", post: result});
+    })
+    .catch((err) => {
+      res.status(404).json(err);
+    });
+};
+module.exports = { addproduct, Deleteproduct, getallproduct, updateproduct,search };
+
+//{description:searchitem,$options:"([A-Z])\w+"},
+//{name:{$regex :`${searchItem}`}},{manufacturingyear:{$regex :`${searchItem}`}},
