@@ -14,6 +14,7 @@ const Navbar = () => {
     <div>
       <div className="Navbar">
         <label className="logo">Al_BORENI_PRINTAR</label>
+        <br></br>
         {token ? (
           <>
             <div className="loginAndRegistar">

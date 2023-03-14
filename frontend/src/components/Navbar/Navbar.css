@@ -1,7 +1,6 @@
-*{
-    padding: 0;
-    margin: 0;
-
+* {
+  padding: 0;
+  margin: 0;
 }
 
 .logo {
@@ -9,14 +8,14 @@
   font-size: 30px;
   align-self: center;
   padding: 3vw;
- 
-font-weight: 200PX;
+
+  font-weight: 200px;
   font-weight: 20px;
 }
 .Navbar {
   display: flex;
-position: sticky;
-top: 0;
+  position: sticky;
+  top: 0;
   justify-content: space-between;
 
   background: #0082ef;
@@ -24,7 +23,6 @@ top: 0;
   width: 100%;
   color: white;
   border-radius: 10px;
-  
 }
 .componentnav {
   color: white;
@@ -34,9 +32,8 @@ top: 0;
   text-decoration: none;
   align-self: center;
 }
-.loginAndRegistar{
+.loginAndRegistar {
   align-self: center;
-
 }
 .componentnav:hover {
   background: white;
@@ -45,6 +42,9 @@ top: 0;
   border: none;
   color: #1b9bff;
 }
+.componentnav :active {
+  transform: translateY(4px);
+}
 .ShoppingIcon {
   color: #1b9bff;
   background-color: whitesmoke;
@@ -52,44 +52,42 @@ top: 0;
   border-radius: 20px;
   border: none;
 }
-.badge{
+.badge {
   color: white;
 }
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 475px) {
   .logo {
     color: white;
-    font-size:15px;
+    font-size: 15px;
     align-self: center;
-  font-weight: 200PX;
-    
+    font-weight: 200px;
   }
-  .Navbar {
-  display: grid;
-  grid-template-rows: 1fr;
-justify-content:flex-start;
-background: #0082ef;
-  height: 40px;
-  width: 100%;
-  color: white;
-  
+  .loginAndRegistar {
+    display: grid;
+    grid-template-columns: auto auto;
+    background: #0082ef;
+
+    padding: 10px;
+  }
+  .componentnav {
+    text-align: center;
+  }
 }
-}
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 605px) {
   .logo {
+    display: inline-block;
     color: white;
-    font-size:15px;
-    align-self: center;
-  font-weight: 200PX;
-    
+    font-size: 17px;
+    text-align: center;
+    font-weight: 200px;
   }
-  .Navbar {
-  display: grid;
-  grid-template-rows: 1fr;
-justify-content:flex-start;
-background: #0082ef;
-  height: 75px;
-  width: 100%;
-  color: white;
-  
-}
+  .loginAndRegistar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    background: #0082ef;
+    height: 82px;
+    width: 100%;
+    color: white;
+  }
 }
