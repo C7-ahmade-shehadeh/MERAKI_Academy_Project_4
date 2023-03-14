@@ -14,6 +14,8 @@ state : {required:true, type :String},
 manufacturingyear : { type :String},
 
 description : { type :String},
+amount : { type :Number,default: 1},
+
 img:{ type :String}
 })
 
