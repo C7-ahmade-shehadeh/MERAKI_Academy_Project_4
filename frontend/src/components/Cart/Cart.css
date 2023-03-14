@@ -6,6 +6,24 @@
     border: solid 1px;
 height: 33px;
 }
+.price{
+    display: flex;
+  justify-content: center;
+   align-items: end;
+
+}
+.btnprice{
+border: none;
+width: 4vh;
+color: #0082ef;
+padding: 2px;
+}
+.pPrice{
+    margin: 0;
+}
+.bodycard:hover {
+    opacity: 1;
+  }
 @media screen and (max-width: 630px) {
     .product{
         color: #0082ef;
