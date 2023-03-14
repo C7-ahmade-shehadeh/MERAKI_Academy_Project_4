@@ -69,11 +69,16 @@ const updateproduct = (req, res) => {
       res.json(err);
     });
 };
-// .find({$or :[{description:new RegExp('^'+ searchItem +'$')}] })
+
 const search = (req, res) => {
   const {searchItem} = req.body;
+  console.log('searchItem: ',searchItem);
+
   moduleProduct
-    .find({description: new RegExp( searchItem)})
+    .find({$or :[{description:new RegExp( searchItem )},
+      {name:new RegExp( searchItem )},
+      {manufacturingyear:new RegExp( searchItem )}
+    ] })
     .then((result) => {
       res.status(200).json({message: "Search Complete", post: result});
     })
@@ -81,7 +86,22 @@ const search = (req, res) => {
       res.status(404).json(err);
     });
 };
-module.exports = { addproduct, Deleteproduct, getallproduct, updateproduct,search };
+const searchkind = (req, res) => {
+  const searchItem = req.query.search;
+  console.log('searchItem: ',searchItem);
 
-//{description:searchitem,$options:"([A-Z])\w+"},
-//{name:{$regex :`${searchItem}`}},{manufacturingyear:{$regex :`${searchItem}`}},
+  moduleProduct
+    .find(
+      {kind:new RegExp( searchItem )}
+     )
+    .then((result) => {
+      res.status(200).json({message: "Search Complete", post: result});
+      console.log(result);
+    })
+    .catch((err) => {
+      res.status(402).json(err);
+      console.log(err);
+    });
+};
+module.exports = { addproduct, Deleteproduct, getallproduct, updateproduct,search,searchkind };
+
