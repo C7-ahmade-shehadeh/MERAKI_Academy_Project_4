@@ -15,7 +15,7 @@ const Cart = () => {
   const [cart, setCart] = useState("");
   const [total, setTotal] = useState(0);
   const [price, setPrice] = useState(0);
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(false);
   const [amount_id, setAmount_id] = useState(1);
   const token = localStorage.getItem("token");
   //todo function DeleteproductCart
@@ -56,10 +56,18 @@ const Cart = () => {
         }
       )
       .then((res) => {
-        console.log(res.data.amount);
-        const newprice = parseInt(res.data.price, 10) * newamount;
-        console.log("newprice: ", newprice);
-        Total(newprice);
+        console.log(res.data._id);
+        const newcart= cart.map(elem =>{
+          if (elem.product._id==res.data._id) {
+            elem.product=res.data
+          }
+         
+          return elem
+        })
+        console.log('newcar: ',newcart);
+        setCart(newcart)
+        
+        Total();
       })
       .catch((err) => {
         console.log(err);
@@ -85,18 +93,18 @@ const Cart = () => {
 
     cart && Total();
   }, []);
-  const Total = (price = 0) => {
-    price = parseInt(price, 10);
-    console.log("price1: ", price);
-
+  const Total = () => {
+    // price = parseInt(price, 10);
+    // console.log("price1: ", price);
     let Totalprice =
       cart &&
       cart.reduce((acc, elem) => {
-        let price2 = parseInt(elem.product.price, 10);
-        console.log("price2: ", price);
+        let price = parseInt(elem.product.price, 10)* elem.product.amount ;
 
-        return acc + price2;
-      }, price);
+        console.log("price: ", price);
+
+        return acc + price;
+      }, 0);
     Totalprice = Totalprice + price;
     console.log("Totalprice: ", Totalprice);
     setTotal(Totalprice);
@@ -114,6 +122,7 @@ const Cart = () => {
         {cart.length > 0 ? (
           cart &&
           cart.map((elem, i) => {
+            
             return (
               <Card key={elem.product._id} className="text-center">
                 <Card.Header>{elem.product.kind}</Card.Header>
@@ -127,11 +136,12 @@ const Cart = () => {
                       <button
                         className="btnprice"
                         onClick={() => {
+
                           const newamount=elem.product.amount +1
-                          setAmount(newamount)
-                          setAmount_id(elem.product._id)
+                                              
                           updateproductCart(elem.product._id,newamount);
                         }}
+                        
                       >
                         +
                       </button>
@@ -139,16 +149,26 @@ const Cart = () => {
                         {" "}
                         price:{" "}
                         { parseInt(elem.product.price, 10) * elem.product.amount }
-                        $
-                      </p>
-
+                        $</p>
+                      
+                      
+                      
                       <button
                         className="btnprice"
                         onClick={() => {
-                          Total(elem.product.price);
-                          console.log("_id:", elem.product._id);
-                          setAmount(elem.product.amount - 1);
+                          if (elem.product.amount > 1) {
+                            setAmount(true)
+                            
+                            const newamount=elem.product.amount -1
+                                    
+                          updateproductCart(elem.product._id,newamount);
+                          }else{
+                            
+                          }
+                          
+                          
                         }}
+                        
                       >
                         -
                       </button>
