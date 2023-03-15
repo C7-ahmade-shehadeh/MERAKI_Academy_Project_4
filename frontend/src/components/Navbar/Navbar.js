@@ -13,7 +13,8 @@ const Navbar = () => {
   return (
     <div>
       <div className="Navbar">
-        <label className="logo">Al_BORENI_PRINTAR</label>
+       
+        <img className="imglogo" src="Screenshot_2.png"></img>
         <br></br>
         {token ? (
           <>

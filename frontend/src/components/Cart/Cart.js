@@ -42,8 +42,7 @@ const Cart = () => {
       });
   };
   //todo function updateproductCart
-  const updateproductCart = (_id,newamount) => {
-    
+  const updateproductCart = (_id, newamount) => {
     console.log("newamount:", newamount);
     axios
       .put(
@@ -57,16 +56,16 @@ const Cart = () => {
       )
       .then((res) => {
         console.log(res.data._id);
-        const newcart= cart.map(elem =>{
-          if (elem.product._id==res.data._id) {
-            elem.product=res.data
+        const newcart = cart.map((elem) => {
+          if (elem.product._id == res.data._id) {
+            elem.product = res.data;
           }
-         
-          return elem
-        })
-        console.log('newcar: ',newcart);
-        setCart(newcart)
-        
+
+          return elem;
+        });
+        console.log("newcar: ", newcart);
+        setCart(newcart);
+
         Total();
       })
       .catch((err) => {
@@ -99,7 +98,7 @@ const Cart = () => {
     let Totalprice =
       cart &&
       cart.reduce((acc, elem) => {
-        let price = parseInt(elem.product.price, 10)* elem.product.amount ;
+        let price = parseInt(elem.product.price, 10) * elem.product.amount;
 
         console.log("price: ", price);
 
@@ -122,7 +121,6 @@ const Cart = () => {
         {cart.length > 0 ? (
           cart &&
           cart.map((elem, i) => {
-            
             return (
               <Card key={elem.product._id} className="text-center">
                 <Card.Header>{elem.product.kind}</Card.Header>
@@ -136,39 +134,31 @@ const Cart = () => {
                       <button
                         className="btnprice"
                         onClick={() => {
+                          const newamount = elem.product.amount + 1;
 
-                          const newamount=elem.product.amount +1
-                                              
-                          updateproductCart(elem.product._id,newamount);
+                          updateproductCart(elem.product._id, newamount);
                         }}
-                        
                       >
                         +
                       </button>
                       <p className="pPrice">
                         {" "}
                         price:{" "}
-                        { parseInt(elem.product.price, 10) * elem.product.amount }
-                        $</p>
-                      
-                      
-                      
+                        {parseInt(elem.product.price, 10) * elem.product.amount}
+                        $
+                      </p>
                       <button
                         className="btnprice"
                         onClick={() => {
                           if (elem.product.amount > 1) {
-                            setAmount(true)
-                            
-                            const newamount=elem.product.amount -1
-                                    
-                          updateproductCart(elem.product._id,newamount);
-                          }else{
-                            
+                            setAmount(true);
+
+                            const newamount = elem.product.amount - 1;
+
+                            updateproductCart(elem.product._id, newamount);
+                          } else {
                           }
-                          
-                          
                         }}
-                        
                       >
                         -
                       </button>

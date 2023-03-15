@@ -7,9 +7,7 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
-import { Link } from "react-router-dom";
-import { Search } from "@mui/icons-material";
-
+import './Dashboard.css'
 const Dashboard = () => {
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
@@ -149,6 +147,7 @@ const Dashboard = () => {
 
   //!==useEffect===
   useEffect(() => {
+    console.log(token);
     axios
       .get(`http://localhost:5000/product`, {
         headers: {

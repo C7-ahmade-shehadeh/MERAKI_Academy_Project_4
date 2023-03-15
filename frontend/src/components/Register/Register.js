@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 import "./Register.css";
 const Register = () => {
   const navigate = useNavigate();
@@ -164,7 +166,18 @@ const Register = () => {
        }}>login</button> </p> :<></> }
      
       {err ? <p className="faild">{statusregister}</p> :<></> }
-     
+      <GoogleOAuthProvider clientId="623758713896-qs98f7ph84a1pgflgvg84up6i825a8mv.apps.googleusercontent.com">
+        <GoogleLogin
+  onSuccess={credentialResponse => {
+    console.log(credentialResponse);
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+  auto_select
+/>
+
+        </GoogleOAuthProvider>
     </div>
   );
 };
