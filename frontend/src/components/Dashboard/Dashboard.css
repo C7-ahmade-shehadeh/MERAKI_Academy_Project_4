@@ -4,6 +4,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   padding: 10px;
+  font-weight: bold;
+  text-shadow: 1px black;
 }
 .headerDashbord {
   display: flex;
@@ -29,9 +31,9 @@ border-radius: 15px;
   border: none;
   color: #1b9bff;
 }
-.h1 {
+/* .h1 {
   color: #0082ef;
-}
+} */
 .imgcard {
   width: 30vw;
   height: 30vh;
@@ -40,6 +42,20 @@ border-radius: 15px;
 .bodycard {
   height: 45vh;
   background: white;
+  /* background-image: url('../../../public/Screenshot_2.png'); */
+background-repeat: no-repeat ;
+background-size: cover;
+color: white;
+position: static;
+}
+.imgbody{
+  opacity: .3;
+  position:absolute;
+  width:31vw;
+  height: 45.4vh;
+  top: 6vh;
+  left:-0vw;
+ 
 }
 .headardash {
   margin:  0px  0px  0px  0px;

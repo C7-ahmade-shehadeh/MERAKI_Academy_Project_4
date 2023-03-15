@@ -342,6 +342,7 @@ const Dashboard = () => {
                     {product.kind}
                   </Card.Header>
                   <Card.Body className="bodycard">
+                    <img className="imgbody" src="Screenshot_2.png"></img>
                     <Card.Title className="cardTitle">
                       {product.name}
                     </Card.Title>
