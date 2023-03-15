@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import axios from "axios";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
+import jwtDecode from "jwt-decode";
 import "./Register.css";
 const Register = () => {
   const navigate = useNavigate();
@@ -27,8 +28,8 @@ const Register = () => {
   const newUser = {
     email: email,
     password: password,
-    firstname: firstname,
-    lastname: lastname,
+    firstName: firstname,
+    lastName: lastname,
     age: age,
     City: City,
     phoneNumber: phoneNumber,
@@ -59,6 +60,31 @@ const Register = () => {
         
       });
   };
+  const handelRegistergoogel=(userObj)=>{
+    
+    const newUser = {
+      email: userObj.email,
+      password: userObj.aud,
+      firstName: userObj.given_name,
+      lastName:userObj.family_name,
+      
+      phoneNumber: userObj.iat,
+      
+      role: role,
+    };
+    console.log('newUser: ',newUser);
+    axios
+  .post("http://localhost:5000/user/register", newUser)
+  .then((result) => {
+    console.log(result.data);
+    
+    
+  })
+  .catch((err) => {
+    console.log(err.response);
+    // handelLogin()     
+  });
+  }
   return (
     <div className="Register">
       <p className="HR">Register</p>
@@ -170,6 +196,10 @@ const Register = () => {
         <GoogleLogin
   onSuccess={credentialResponse => {
     console.log(credentialResponse);
+    const token =credentialResponse.credential
+    const userObj=jwtDecode(token)
+    
+    handelRegistergoogel(userObj)
   }}
   onError={() => {
     console.log('Login Failed');

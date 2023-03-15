@@ -43,10 +43,10 @@ const Cart = () => {
   };
   //todo function updateproductCart
   const updateproductCart = (_id, newamount) => {
-    console.log("newamount:", newamount);
+    console.log("newamount:", newamount,'token',token);
     axios
       .put(
-        `http://localhost:5000/product/updat/${_id}`,
+        `http://localhost:5000/cart/updat/${_id}`,
         { amount: newamount },
         {
           headers: {
@@ -55,18 +55,18 @@ const Cart = () => {
         }
       )
       .then((res) => {
-        console.log(res.data._id);
+        console.log(res.data);
         const newcart = cart.map((elem) => {
-          if (elem.product._id == res.data._id) {
-            elem.product = res.data;
+          console.log( 'elem.amount: ' , elem.amount ,' res.data.amount:', res.data.amount);
+          if (elem._id == res.data._id) {
+            elem.amount = res.data.amount;
           }
-
           return elem;
         });
         console.log("newcar: ", newcart);
         setCart(newcart);
 
-        Total();
+        Total(newcart);
       })
       .catch((err) => {
         console.log(err);
@@ -85,32 +85,32 @@ const Cart = () => {
         console.log("data", res.data);
         setCart(res.data);
         console.log("cart", cart);
+         Total(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
 
-    cart && Total();
+
   }, []);
-  const Total = () => {
-    // price = parseInt(price, 10);
-    // console.log("price1: ", price);
+  const Total = (cart) => {
+    console.log('newcart:',cart);
     let Totalprice =
       cart &&
       cart.reduce((acc, elem) => {
-        let price = parseInt(elem.product.price, 10) * elem.product.amount;
+        let price = parseInt(elem.product.price, 10) * elem.amount;
 
         console.log("price: ", price);
 
         return acc + price;
       }, 0);
     Totalprice = Totalprice + price;
-    console.log("Totalprice: ", Totalprice);
+    // console.log("Totalprice: ", Totalprice);
     setTotal(Totalprice);
     // return Totalprice
   };
 
-  console.log("cart.length", cart.length);
+  // console.log("cart.length", cart.length);
   setCartL(cart.length);
   return (
     <div>
@@ -134,9 +134,9 @@ const Cart = () => {
                       <button
                         className="btnprice"
                         onClick={() => {
-                          const newamount = elem.product.amount + 1;
+                          const newamount = elem.amount + 1;
 
-                          updateproductCart(elem.product._id, newamount);
+                          updateproductCart(elem._id, newamount);
                         }}
                       >
                         +
@@ -144,7 +144,8 @@ const Cart = () => {
                       <p className="pPrice">
                         {" "}
                         price:{" "}
-                        {parseInt(elem.product.price, 10) * elem.product.amount}
+                        {parseInt(elem.product.price, 10) * elem.amount}
+                        {/* {console.log('elem.amount: ',elem.amount)} */}
                         $
                       </p>
                       <button
@@ -153,9 +154,9 @@ const Cart = () => {
                           if (elem.product.amount > 1) {
                             setAmount(true);
 
-                            const newamount = elem.product.amount - 1;
+                            const newamount = elem.amount - 1;
 
-                            updateproductCart(elem.product._id, newamount);
+                            updateproductCart(elem._id, newamount);
                           } else {
                           }
                         }}
@@ -163,7 +164,7 @@ const Cart = () => {
                         -
                       </button>
                     </div>
-                    <p>amount:{elem.product.amount}</p>
+                    <p>amount:{elem.amount}</p>
                   </Card.Text>
                   <Button variant="outline-success">buying</Button>
                   <Button

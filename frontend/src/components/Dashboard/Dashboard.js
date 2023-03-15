@@ -209,13 +209,22 @@ const Dashboard = () => {
               <>
                 <Card className="text-center">
                   <Card.Header as="h5">
-                    <input
-                      type={"text"}
-                      placeholder="kind .."
-                      onChange={(e) => {
-                        setKind(e.target.value);
-                      }}
-                    ></input>
+                  <label className="labelkind"> kind:</label>
+                  <select
+          className="selectadd"
+            name="category"
+            id="category"
+            onClick={(e) => {
+              const kind = e.target.value;
+              searchkind(kind);
+            }}
+          >
+            <option value="clothes">clothes</option>
+            <option value="watch">watch</option>
+            <option value="Perfumes and makeup">Perfumes and makeup</option>
+            <option value="Cap and scarf">Cap and scarf</option>
+          </select>
+          
                   </Card.Header>
                   <Card.Body>
                     <Card.Title>
@@ -342,7 +351,6 @@ const Dashboard = () => {
                     {product.kind}
                   </Card.Header>
                   <Card.Body className="bodycard">
-                    <img className="imgbody" src="Screenshot_2.png"></img>
                     <Card.Title className="cardTitle">
                       {product.name}
                     </Card.Title>
@@ -351,6 +359,7 @@ const Dashboard = () => {
                       <p> manu facturing year: {product.manufacturingyear}</p>
                       <p> price: {product.price}$</p>
                     </Card.Text>
+                    {/* <img className="imgbody" src="Screenshot_2.png"></img> */}
                     <Button
                       variant="outline-primary"
                       onClick={() => {
