@@ -3,6 +3,7 @@ const {
   addcart,
   getcart,
   Deleteproductincart,
+  updateproduct,
 } = require("../controllers/cart");
 const authorization = require("../middleware/authorization");
 
@@ -16,7 +17,12 @@ cartRouter.delete(
   authentication,
   Deleteproductincart
 );
-
+cartRouter.put(
+  "/updat/:id",
+  authentication,
+  authorization("ADD"),
+  updateproduct
+  );
 module.exports = cartRouter;
 
 

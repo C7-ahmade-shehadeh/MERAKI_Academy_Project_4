@@ -16,7 +16,7 @@ const authentication = (req, res, next) => {
         req.token = valid;
         next();
       }
-    });
+    })
   } catch (error) {
     res.status(403).json({
       message: `error`,
@@ -25,4 +25,7 @@ const authentication = (req, res, next) => {
   }
 };
 
+
 module.exports = authentication;
+
+

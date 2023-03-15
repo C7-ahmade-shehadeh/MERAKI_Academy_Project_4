@@ -63,4 +63,17 @@ const Deleteproductincart = (req, res) => {
       res.status(500).json({ err: err });
     });
 };
-module.exports = { addcart, getcart, Deleteproductincart };
+const updateproduct = (req, res) => {
+  console.log('in updateproduct');
+  const _id = req.params.id;
+  const update = req.body;
+  modulecart
+    .findByIdAndUpdate(_id, update,{new:true})
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(405).json(err);
+    });
+};
+module.exports = { addcart, getcart,updateproduct, Deleteproductincart };

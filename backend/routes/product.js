@@ -17,7 +17,7 @@ productRouter.put(
   authentication,
   authorization("CREAT"),
   updateproduct
-);
+  );
 productRouter.get("/", authentication, authentication, getallproduct);
 productRouter.post("/search",search);
 productRouter.get("/searchkind/",searchkind);

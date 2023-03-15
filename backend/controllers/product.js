@@ -58,17 +58,20 @@ const getallproduct = (req, res) => {
     });
 };
 const updateproduct = (req, res) => {
+  console.log('in updateproduct');
   const _id = req.params.id;
   const update = req.body;
   moduleProduct
     .findByIdAndUpdate(_id, update,{new:true})
     .then((result) => {
-      res.json(result);
+      res.status(200).json(result);
     })
     .catch((err) => {
-      res.json(err);
+      res.status(405).json(err);
     });
 };
+
+
 
 const search = (req, res) => {
   const {searchItem} = req.body;
