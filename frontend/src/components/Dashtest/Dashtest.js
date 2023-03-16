@@ -346,24 +346,33 @@ const Dashboard = () => {
           products.map((product, i) => {
             return (
               <div key={product._id}>
-                <Card className="text-center card">
+                <Card className="text-center card2">
                   <Card.Header className="cardheader" as="h5">
                     {product.kind}
                   </Card.Header>
                   <Card.Body className="bodycard">
+                    
+                  <Card.Img
+                    variant="bottom"
+                    className="imgcard2"
+                    src={product.img}
+                  />
                     <Card.Title className="cardTitle">
                       {product.name}
                     </Card.Title>
-                    <Card.Text  className="description">
+                    <Card.Text  className="description2">
                       {product.description}
                       <p > manu facturing year: {product.manufacturingyear}</p>
                       <p> price: {product.price}$</p>
                     </Card.Text>
                     {/* <img className="imgbody" src="Screenshot_2.png"></img> */}
+  <div class="overlay2"></div>
+
                     <Button
-                      variant="outline-primary"
+                    className="btnaddtocart"
+                    variant="outline-primary"
                       onClick={() => {
-                        console.log(product._id);
+                        
                         addTocart(product._id);
                       }}
                     >
@@ -386,21 +395,17 @@ const Dashboard = () => {
                     delivery: {product.delivery}
                     {"  "}state: {product.state}
                   </Card.Footer>
-                  <Card.Img
-                    variant="bottom"
-                    className="imgcard"
-                    src={product.img}
-                  />
+                  
                 </Card>
               </div>
             );
           })}
       </div>
       <div class="container">
-  <img className="imgtest" src="https://images.unsplash.com/photo-1488628075628-e876f502d67a?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=" alt="" />
-  <p class="title">card title</p>
-  <div class="overlay"></div>
-  <div class="button"><a href="#"> BUTTON </a></div>
+  <img className="imgtest2" src="https://images.unsplash.com/photo-1488628075628-e876f502d67a?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=" alt="" />
+  <p class="title2">card title</p>
+  <div class="overlay2"></div>
+  <div class="button2"><a href="#"> BUTTON </a></div>
 </div>
     </div>
   );

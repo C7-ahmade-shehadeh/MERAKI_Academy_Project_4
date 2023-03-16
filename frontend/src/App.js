@@ -7,6 +7,7 @@ import Login from './components/login/Login'
 import Register from './components/Register/Register'
 import Dashboard from "./components/Dashboard/Dashboard";
 import Cart from "./components/Cart/Cart";
+import Dashtest from "./components/Dashtest/Dashtest";
 export const UserContext =createContext()
 function App() {
   const [cartL, setCartL] = useState(0)
@@ -25,6 +26,9 @@ function App() {
 <Route path='/Login' element={<Login/>}/>
 <Route path='/Dashboard' element={<Dashboard/>}/>
 <Route path='/Cart' element={<Cart/>}/>
+<Route path='/Dashtest' element={<Dashtest/>}/>
+
+
 
 
 

@@ -29,7 +29,9 @@ const Navbar = () => {
               <Link to="/Dashboard" className="componentnav Dashboard">
                 Dashboard
               </Link>
-
+              <Link to="/Dashtest" className="componentnav ">
+              Dashtest
+              </Link>
               <Link to="/Cart">
                 <button className="ShoppingIcon componentnav">
                   <Badge badgeContent={cartL} max={9} color="info">

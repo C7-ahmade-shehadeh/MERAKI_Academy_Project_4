@@ -10,11 +10,10 @@
 .headerDashbord {
   display: flex;
   justify-content: space-between;
-border-radius: 15px;
+  border-radius: 15px;
   background: #0082ef;
   color: white;
   align-items: center;
-  
 }
 .catagory {
   text-decoration: none;
@@ -31,31 +30,30 @@ border-radius: 15px;
   border: none;
   color: #1b9bff;
 }
-/* .h1 {
-  color: #0082ef;
-} */
-.imgcard {
-  width: 30vw;
-  height: 30vh;
-  border-radius: 30%;
-}
+
+
 .bodycard {
+  position: relative;
   height: 45vh;
   background: white;
-  background-image: url('../../../public/Screenshot_2.png');
-background-repeat: no-repeat ;
-background-size: cover;
-color: white;
-position: relative;
+  /* background-image: url('../../../public/Screenshot_2.png'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
-.description{
-  background-color: #10beb2;
-  opacity: .5;
+.description2 {
+  position: absolute;
+  /* background-color: #10beb2; */
+  top: 0px;
   font-size: 17px;
   font-weight: bold;
   border-radius: 15px;
-color: black;
-height: 28vh;
+  color: #0082ef;
+  height: 20vh;
+  text-align: center;
+  z-index: 1;
+  transition: top 0.9s ease;
+  opacity: 0;
 }
 /* .bodycard::before {    
   content: "";
@@ -68,7 +66,7 @@ height: 28vh;
   left: 0px;
   opacity: 0.75;
 } */
-.imgbody{
+/* .imgbody{
   opacity: .3;
   position:absolute;
   width:31vw;
@@ -76,31 +74,56 @@ height: 28vh;
   top: 6vh;
   left:-0vw;
  
-}
+} */
 .headardash {
-  margin:  0px  0px  0px  0px;
+  margin: 0px 0px 0px 0px;
 }
 .card {
+  
   margin: 2px;
   margin-bottom: 2vh;
   border-radius: 20px;
 }
 .card:hover {
-  box-shadow: 2px 2px 2px 2px blue inset;
-  border-radius: 50px;
-  transition: 0.5;
+  /* box-shadow: 2px 2px 2px 2px blue inset; */
+  /* border-radius: 50px; */
+  /* transition: 0.5; */
   /* transform:scale(2,2); */
 }
-.imgcard {
-  width: 40vw;
-  height: 40vh;
-}
-.imgcard:hover {
-  opacity: 0.2;
+.imgcard2 {
+  position: absolute;
+  top: 0px;
+
+  height: 45vh;
+  left: 0;
+
+  /* border-radius: 10%; */
 }
 
-.bodycard:hover {
-  opacity: 0.5;
+.bodycard:hover .description2 {
+  top: 50px;
+  opacity: 1;
+}
+.bodycard:hover .imgcard2 {
+  opacity: 0.4;
+}
+.bodycard:hover .overlay2 {
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+}
+.btnaddtocart {
+  position: absolute;
+  align-items: center;
+  top: 180px;
+  left: 80px;
+  right: 80px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.bodycard:hover .btnaddtocart {
+  opacity: 1;
 }
 .inputsearch {
   border: none;
@@ -108,42 +131,29 @@ height: 28vh;
   border-radius: 20px;
   width: 25vw;
   text-align: center;
-
 }
 .inputsearch :focus {
-  
   width: 200px;
-
 }
 .headarsearch {
-  
- 
-  
- 
   border-radius: 20px;
   /* width: 200px; */
-  
-
 }
-.select{
-width: 80px;
-border: none;
-border-radius: 16px;
-cursor: pointer;
-
-}
-.icon{
+.select {
+  width: 80px;
+  border: none;
+  border-radius: 16px;
   cursor: pointer;
-
 }
-.icon:active{
+.icon {
+  cursor: pointer;
+}
+.icon:active {
   transform: translateY(4px);
-
 }
-.label{
-text-align: center;
-margin-left: 3vw;
-
+.label {
+  text-align: center;
+  margin-left: 3vw;
 }
 @media screen and (max-width: 471px) {
   .product {
@@ -154,10 +164,23 @@ margin-left: 3vw;
     padding: 0;
   }
   .bodycard {
-    width: 40vw;
-    height: 30vh;
+    width: 47vw;
+    height: 35vh;
     background: white;
     align-self: center;
+  }
+  .description {
+    height: 19.5vh;
+    font-size: 13px;
+  }
+  .imgcard2 {
+    position: absolute;
+    top: 1px;
+  
+    height: 35vh;
+    left: 0;
+  
+    border-radius: 10%;
   }
 }
 @media screen and (max-width: 350px) {
@@ -200,40 +223,34 @@ margin-left: 3vw;
   }
   .headerDashbord {
     font-size: small;
-   border-radius: 10px;
+    border-radius: 10px;
   }
-  .headarsearch{
+  .headarsearch {
     font-size: 10px;
-
   }
-  .inputsearch{
-   display: inline;
+  .inputsearch {
+    display: inline;
   }
-  .icon{
+  .icon {
     height: 35px;
     font-size: 5px;
     width: 44px;
     margin-right: 10px;
-
   }
-  .list{
+  .list {
     display: flex;
     width: 65px;
     height: 25px;
     font-size: 13px;
-
-
   }
-  .label{
+  .label {
     display: inline;
     font-size: 14px;
   }
-  .select{
-width: 55px;
-
+  .select {
+    width: 55px;
   }
-  .btnheader{
-
+  .btnheader {
   }
 }
 @media screen and (max-width: 250px) {
@@ -247,7 +264,7 @@ width: 55px;
   }
   .bodycard {
     width: 100vw;
-    height:75vh;
+    height: 75vh;
     background: red;
     align-self: center;
     font-size: small;
@@ -260,7 +277,6 @@ width: 55px;
   .cardheader {
     margin-left: 1vw;
     font-size: 15px;
-   
   }
   .cardTitle {
     font-size: 10px;
@@ -278,78 +294,75 @@ width: 55px;
   }
   .headerDashbord {
     font-size: small;
-   border-radius: 10px;
+    border-radius: 10px;
   }
-  .headarsearch{
+  .headarsearch {
     border: none;
-
   }
-  .inputsearch{
-  margin-right: 3px;
-  text-align: center;
+  .inputsearch {
+    margin-right: 3px;
+    text-align: center;
   }
-  .inputsearch::placeholder{
-   font-size: 14px;
-    }
-  .icon{
+  .inputsearch::placeholder {
+    font-size: 14px;
+  }
+  .icon {
     height: 35px;
     font-size: 5px;
     width: 44px;
     margin-right: 4px;
-opacity: 0;
+    opacity: 0;
   }
-  .list{
+  .list {
     display: flex;
     width: 65px;
     height: 25px;
     font-size: 13px;
-
-
   }
-  .label{
+  .label {
     display: inline;
     font-size: 9px;
     align-self: center;
   }
-  .select{
-width: 55px;
+  .select {
+    width: 55px;
 
-align-self: center;
+    align-self: center;
   }
-  .btnheader{
-opacity: 1;
+  .btnheader {
+    opacity: 1;
   }
 }
- .container {
+.container {
   position: relative;
   margin-top: 50px;
   width: 500px;
   height: 300px;
 }
 
-/* .overlay {
+.overlay2 {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0);.overlay
+  background: rgba(0, 0, 0, 0);
   transition: background 0.5s ease;
 }
 
-.container:hover  {
+.container:hover .overlay2 {
   display: block;
-  background: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, 0.3);
 }
- */
-.imgtest {
+
+.imgtest2 {
   position: absolute;
   width: 500px;
   height: 300px;
   left: 0;
 }
 
-.title {
+.title2 {
   position: absolute;
   width: 500px;
   left: 0;
@@ -360,24 +373,24 @@ opacity: 1;
   text-transform: uppercase;
   color: white;
   z-index: 1;
-  transition: top .5s ease;
+  transition: top 0.5s ease;
 }
 
-.container:hover .title {
+.container:hover .title2 {
   top: 90px;
 }
 
-.button {
+.button2 {
   position: absolute;
   width: 500px;
-  left:0;
+  left: 0;
   top: 180px;
   text-align: center;
   opacity: 0;
-  transition: opacity .35s ease;
+  transition: opacity 0.35s ease;
 }
 
-.button a {
+.button2 a {
   width: 200px;
   padding: 12px 48px;
   text-align: center;
@@ -386,6 +399,6 @@ opacity: 1;
   z-index: 1;
 }
 
-.container:hover .button {
+.container:hover .button2 {
   opacity: 1;
-} 
+}
