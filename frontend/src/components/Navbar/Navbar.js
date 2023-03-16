@@ -9,7 +9,10 @@ import "./Navbar.css";
 const Navbar = () => {
   const token = localStorage.getItem("token");
   const { cartL } = useContext(UserContext);
+  const role =localStorage.getItem('role')
   console.log("cartl: ", cartL);
+  console.log("role: ", role);
+
   return (
     <div>
       <div className="Navbar">
@@ -26,12 +29,13 @@ const Navbar = () => {
               <Link to="/Login" className="componentnav ">
                 Login
               </Link>
-              <Link to="/Dashboard" className="componentnav Dashboard">
+             { role == 'USER' ?<Link to="/Dashtest" className="componentnav Dashboard">
                 Dashboard
-              </Link>
-              <Link to="/Dashtest" className="componentnav ">
-              Dashtest
-              </Link>
+              </Link>:<Link to="/Dashboard" className="componentnav ">
+              Dashboard
+              </Link> }
+              
+              
               <Link to="/Cart">
                 <button className="ShoppingIcon componentnav">
                   <Badge badgeContent={cartL} max={9} color="info">

@@ -14,6 +14,7 @@ border-radius: 15px;
   background: #0082ef;
   color: white;
   align-items: center;
+width:  100vw;
   
 }
 .catagory {
@@ -86,22 +87,22 @@ height: 28vh;
   border-radius: 20px;
 }
 .card:hover {
-  box-shadow: 2px 2px 2px 2px blue inset;
-  border-radius: 50px;
-  transition: 0.5;
+  /* box-shadow: 2px 2px 2px 2px blue inset; */
+  /* border-radius: 50px; */
+  /* transition: 0.5; */
   /* transform:scale(2,2); */
 }
 .imgcard {
   width: 40vw;
   height: 40vh;
 }
-.imgcard:hover {
+/* .imgcard:hover {
   opacity: 0.2;
-}
+} */
 
-.bodycard:hover {
+/* .bodycard:hover {
   opacity: 0.5;
-}
+} */
 .inputsearch {
   border: none;
   font-size: large;
@@ -116,14 +117,8 @@ height: 28vh;
 
 }
 .headarsearch {
-  
- 
-  
- 
-  border-radius: 20px;
+ border-radius: 20px;
   /* width: 200px; */
-  
-
 }
 .select{
 width: 80px;
@@ -134,6 +129,11 @@ cursor: pointer;
 }
 .icon{
   cursor: pointer;
+
+}
+.icon:hover{
+  
+  color: #0CD2E5;
 
 }
 .icon:active{
@@ -248,7 +248,7 @@ width: 55px;
   .bodycard {
     width: 100vw;
     height:75vh;
-    background: red;
+  
     align-self: center;
     font-size: small;
   }
@@ -279,6 +279,8 @@ width: 55px;
   .headerDashbord {
     font-size: small;
    border-radius: 10px;
+width:  100vw;
+
   }
   .headarsearch{
     border: none;

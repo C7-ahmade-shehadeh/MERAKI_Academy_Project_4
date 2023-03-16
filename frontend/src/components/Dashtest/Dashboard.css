@@ -12,6 +12,7 @@
   justify-content: space-between;
   border-radius: 15px;
   background: #0082ef;
+  background-image: linear-gradient(blue,#0CD2E5);
   color: white;
   align-items: center;
 }
@@ -55,26 +56,9 @@
   transition: top 0.9s ease;
   opacity: 0;
 }
-/* .bodycard::before {    
-  content: "";
-  background-image: url('../../../public/Screenshot_2.png');
-  background-size: cover;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.75;
-} */
-/* .imgbody{
-  opacity: .3;
-  position:absolute;
-  width:31vw;
-  height: 45.4vh;
-  top: 6vh;
-  left:-0vw;
- 
-} */
+
+  
+
 .headardash {
   margin: 0px 0px 0px 0px;
 }
@@ -85,10 +69,9 @@
   border-radius: 20px;
 }
 .card:hover {
-  /* box-shadow: 2px 2px 2px 2px blue inset; */
-  /* border-radius: 50px; */
-  /* transition: 0.5; */
-  /* transform:scale(2,2); */
+  
+  bottom: 10px;
+  
 }
 .imgcard2 {
   position: absolute;
@@ -115,14 +98,20 @@
   position: absolute;
   align-items: center;
   top: 180px;
-  left: 80px;
-  right: 80px;
+  left: 10vw;
+  right:10vw;
   text-align: center;
-  opacity: 0;
-  transition: opacity 0.9s ease;
+  opacity:0;
+  transition: bottom  0.9s ease;
 }
+.cardTitle2{
+color: blue;
 
+}
 .bodycard:hover .btnaddtocart {
+  opacity: 1;
+}
+.bodycard:hover .cardTitle2 {
   opacity: 1;
 }
 .inputsearch {
@@ -155,6 +144,44 @@
   text-align: center;
   margin-left: 3vw;
 }
+@media screen and (max-width: 630px) {
+  .product {
+    color: #0082ef;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 0;
+  }
+  .bodycard {
+    width: 47vw;
+    height: 35vh;
+    background: white;
+    align-self: center;
+  }
+  .description {
+    height: 19.5vh;
+    font-size: 13px;
+  }
+  .imgcard2 {
+    position: absolute;
+    top: 1px;
+  
+    height: 35vh;
+    left: 0;
+  
+    border-radius: 10%;
+  }
+  .btnaddtocart {
+    position: absolute;
+    align-items: center;
+    top: 180px;
+    left: 80px;
+    right: 80px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.9s ease;
+  }
+}
 @media screen and (max-width: 471px) {
   .product {
     color: #0082ef;
@@ -181,6 +208,16 @@
     left: 0;
   
     border-radius: 10%;
+  }
+  .btnaddtocart {
+    position: absolute;
+    align-items: center;
+    top: 180px;
+    left: 80px;
+    right: 80px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.9s ease;
   }
 }
 @media screen and (max-width: 350px) {
@@ -265,15 +302,26 @@
   .bodycard {
     width: 100vw;
     height: 75vh;
-    background: red;
+    
     align-self: center;
     font-size: small;
   }
-  .imgcard {
-    width: 100vw;
-    height: 55vh;
-    opacity: 0;
+  .imgcard2 {
+    position: absolute;
+    top: 1px;
+  /* color: #1b9bff; */
+    height: 75vh;
+    left: 0;
+  
+    border-radius: 10%;
   }
+  .description2 {
+    height: 14.5vh;
+    font-size: 13px;
+    
+    font-weight: 600;
+  }
+
   .cardheader {
     margin-left: 1vw;
     font-size: 15px;
@@ -332,6 +380,9 @@
   .btnheader {
     opacity: 1;
   }
+  .bodycard:hover .imgcard2 {
+    opacity: 0.2;
+  }
 }
 .container {
   position: relative;
@@ -381,24 +432,27 @@
 }
 
 .button2 {
-  position: absolute;
-  width: 500px;
+  position: fixed;
+  width: 70px;
   left: 0;
-  top: 180px;
+  top: 90vh;
   text-align: center;
-  opacity: 0;
+  opacity:.5;
   transition: opacity 0.35s ease;
 }
 
 .button2 a {
   width: 200px;
-  padding: 12px 48px;
+  padding: 10px 20px;
   text-align: center;
-  color: white;
-  border: solid 2px white;
+  color: #0082ef;
+  border: solid 2px #0082ef;
+  border-radius: 100%;
   z-index: 1;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
-.container:hover .button2 {
+.button2:hover  {
   opacity: 1;
 }

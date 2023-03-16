@@ -7,6 +7,7 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import './Dashboard.css'
 const Dashboard = () => {
   const token = localStorage.getItem("token");
@@ -357,7 +358,7 @@ const Dashboard = () => {
                     className="imgcard2"
                     src={product.img}
                   />
-                    <Card.Title className="cardTitle">
+                    <Card.Title className="cardTitle2">
                       {product.name}
                     </Card.Title>
                     <Card.Text  className="description2">
@@ -401,12 +402,8 @@ const Dashboard = () => {
             );
           })}
       </div>
-      <div class="container">
-  <img className="imgtest2" src="https://images.unsplash.com/photo-1488628075628-e876f502d67a?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=" alt="" />
-  <p class="title2">card title</p>
-  <div class="overlay2"></div>
-  <div class="button2"><a href="#"> BUTTON </a></div>
-</div>
+  <div class="button2"><a href="#"> <KeyboardDoubleArrowUpIcon/> </a></div>
+      
     </div>
   );
 };
