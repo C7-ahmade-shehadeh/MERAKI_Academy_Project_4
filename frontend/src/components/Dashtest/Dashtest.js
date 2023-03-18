@@ -4,9 +4,6 @@ import { Button, Card } from "react-bootstrap";
 import "./Dashboard.css";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import SearchIcon from "@mui/icons-material/Search";
-import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import { UserContext } from "../../App";
 import './Dashboard.css'

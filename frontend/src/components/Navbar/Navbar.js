@@ -8,12 +8,11 @@ import { UserContext } from "../../App";
 import "./Navbar.css";
 import axios from "axios";
 import "../Dashtest/Dashboard.css";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
-import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+
 const Navbar = () => {
   const token = localStorage.getItem("token");
   // const [products, setProducts] = useState("");
@@ -86,7 +85,6 @@ const searchkind = (searchItem) => {
   return (
     <div>
       <div className="Navbar">
-        {console.log('photo:',photo)}
        {photo ?  <img className="imglogo" src={photo}></img> : <img className="imglogo" src="Screenshot_2.png"></img>}
        
        
@@ -127,7 +125,7 @@ const searchkind = (searchItem) => {
           ></input>
           </div>
         
-        <div>
+        {/* <div>
           {console.log(role)}
           {role == "UDMIN" ? (
             add ? (
@@ -248,6 +246,8 @@ const searchkind = (searchItem) => {
             ) : (
               <>
                 {"  "}
+                <Link to="/Add" 
+              className="componentnav ">
                 <Button
                   className="btnheader icon"
                   
@@ -260,17 +260,20 @@ const searchkind = (searchItem) => {
                   <AddCircleOutlineOutlinedIcon />
                   Product
                 </Button>
+              </Link>
+                
               </>
             )
           ) : (
             <></>
           )}
-        </div>
+        </div> */}
       </div>
         {token ? (
           <>
             <div className="loginAndRegistar">
-              <Link to="/Register" className="componentnav ">
+              <Link to="/Register" relative="path"
+              className="componentnav ">
                 Register
               </Link>
 
@@ -279,9 +282,30 @@ const searchkind = (searchItem) => {
               </Link>
              { role == 'USER' ?<Link to="/Dashtest" className="componentnav Dashboard">
                 Dashboard
-              </Link>:<Link to="/Dashboard" className="componentnav ">
+              </Link>:
+              <>
+               <>
+                {"  "}
+                <Link to="/Add" 
+              className="componentnav ">
+                <Button
+                  className="btnheader icon"
+                  
+                  variant="primary"
+                  onClick={() => {
+                   
+                  }}
+                >
+                  {" "}
+                  <AddCircleOutlineOutlinedIcon />
+                  Product
+                </Button>
+              </Link>
+                
+              </>
+              <Link to="/Dashboard" className="componentnav ">
               Dashboard
-              </Link> }
+              </Link> </>}
               
               
               <Link to="/Cart">

@@ -31,9 +31,7 @@ width:  50vw;
   border: none;
   color: #1b9bff;
 }
-/* .h1 {
-  color: #0082ef;
-} */
+
 .imgcard {
   width: 30vw;
   height: 30vh;
@@ -49,25 +47,15 @@ color: white;
 position: relative;
 }
 .description{
-  /* background-color: #10beb2; */
+  
   opacity: .5;
   font-size: 17px;
   font-weight: bold;
   border-radius: 15px;
 color: black;
-height: 28vh;
+height: 20vh;
 }
-/* .bodycard::before {    
-  content: "";
-  background-image: url('../../../public/Screenshot_2.png');
-  background-size: cover;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.75;
-} */
+
 .imgbody{
   opacity: .3;
   position:absolute;
@@ -85,23 +73,12 @@ height: 28vh;
   margin-bottom: 2vh;
   border-radius: 20px;
 }
-.card:hover {
-  /* box-shadow: 2px 2px 2px 2px blue inset; */
-  /* border-radius: 50px; */
-  /* transition: 0.5; */
-  /* transform:scale(2,2); */
-}
+
 .imgcard {
   width: 40vw;
   height: 40vh;
 }
-/* .imgcard:hover {
-  opacity: 0.2;
-} */
 
-/* .bodycard:hover {
-  opacity: 0.5;
-} */
 .inputsearch {
   border: none;
   font-size: large;
@@ -117,7 +94,7 @@ height: 28vh;
 }
 .headarsearch {
  border-radius: 20px;
-  /* width: 200px; */
+ 
 }
 .select{
 width: 80px;
@@ -144,6 +121,16 @@ text-align: center;
 margin-left: 3vw;
 
 }
+@media screen and (max-width: 486px) {
+  .description{
+    opacity: .8;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 15px;
+  color: black;
+  height: 22vh;
+  }
+}
 @media screen and (max-width: 471px) {
   .product {
     color: #0082ef;
@@ -151,12 +138,22 @@ margin-left: 3vw;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     padding: 0;
+    margin-bottom: 5vh;
   }
+  
   .bodycard {
     width: 40vw;
     height: 30vh;
     background: white;
     align-self: center;
+  }
+  .description{
+    opacity: .8;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 15px;
+  color: black;
+  height: 14vh;
   }
 }
 @media screen and (max-width: 350px) {
@@ -228,9 +225,7 @@ margin-left: 3vw;
 width: 55px;
 
   }
-  .btnheader{
-
-  }
+  
 }
 @media screen and (max-width: 250px) {
   .product {

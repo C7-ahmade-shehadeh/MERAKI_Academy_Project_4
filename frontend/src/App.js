@@ -8,6 +8,7 @@ import Register from './components/Register/Register'
 import Dashboard from "./components/Dashboard/Dashboard";
 import Cart from "./components/Cart/Cart";
 import Dashtest from "./components/Dashtest/Dashtest";
+import Add from './components/Add'
 export const UserContext =createContext()
 function App() {
   const [products, setProducts] = useState("");
@@ -32,6 +33,7 @@ function App() {
 <Route path='/Dashboard' element={<Dashboard/>}/>
 <Route path='/Cart' element={<Cart/>}/>
 <Route path='/Dashtest' element={<Dashtest/>}/>
+<Route path='/Add' element={<Add/>}/>
 
 
 

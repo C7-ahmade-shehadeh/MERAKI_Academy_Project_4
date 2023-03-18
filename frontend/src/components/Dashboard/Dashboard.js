@@ -4,9 +4,6 @@ import { Button, Card } from "react-bootstrap";
 import "./Dashboard.css";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import SearchIcon from "@mui/icons-material/Search";
-import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import { UserContext } from "../../App";
 
 import './Dashboard.css'
@@ -15,7 +12,6 @@ const Dashboard = () => {
 
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
-  // const [products, setProducts] = useState("");
   const [userId, setUserId] = useState("");
   const [add, setAdd] = useState(false);
   //? == productSchema ======================
@@ -170,180 +166,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className="headerDashbord">
-        {/* <div className="list">
-          
-          <label className="label"> category:</label>
-          <select
-          className="select"
-            name="category"
-            id="category"
-            onClick={(e) => {
-              const searchItem = e.target.value;
-              searchkind(searchItem);
-            }}
-          >
-            <option value="clothes">clothes</option>
-            <option value="watch">watch</option>
-            <option value="Perfumes and makeup">Perfumes and makeup</option>
-            <option value="Cap and scarf">Cap and scarf</option>
-          </select>
-</div> */}
-{/* <div className="headarsearch">
-          <label>
-            <i>
-              {" "}
-              <SearchIcon className="icon" onClick={search} />
-            </i>
-          </label>
-          <input
-            className="inputsearch"
-            type={"text"}
-            placeholder="Search .."
-            onChange={(e) => {
-              const searchval = e.target.value;
-              setSearch2(searchval);
-            }}
-          ></input>
-          </div>
         
-        <div>
-          {console.log(role)}
-          {role == "UDMIN" ? (
-            add ? (
-              <>
-                <Card className="text-center">
-                  <Card.Header as="h5">
-                  <label className="labelkind"> kind:</label>
-                  <select
-          className="selectadd"
-            name="category"
-            id="category"
-            onClick={(e) => {
-              const kind = e.target.value;
-              setKind(kind);
-            }}
-          >
-            <option value="clothes">clothes</option>
-            <option value="watch">watch</option>
-            <option value="Perfumes and makeup">Perfumes and makeup</option>
-            <option value="Cap and scarf">Cap and scarf</option>
-          </select>
-          
-                  </Card.Header>
-                  <Card.Body>
-                    <Card.Title>
-                      <input
-                        type={"text"}
-                        placeholder="name .."
-                        onChange={(e) => {
-                          setName(e.target.value);
-                        }}
-                      ></input>
-                    </Card.Title >
-                    <Card.Text>
-                      <textarea
-                        type={"text"}
-                        placeholder="description .."
-                        onChange={(e) => {
-                          setDescription(e.target.value);
-                        }}
-                      ></textarea>
-                      <p>
-                        {" "}
-                        <input
-                          type={"text"}
-                          placeholder="manufacturingyear .."
-                          onChange={(e) => {
-                            setManufacturingyear(e.target.value);
-                          }}
-                        ></input>
-                      </p>
-                      <p>
-                        {" "}
-                        <input
-                          type={"text"}
-                          placeholder="price .."
-                          onChange={(e) => {
-                            setPrice(e.target.value);
-                          }}
-                        ></input>
-                      </p>
-                    </Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <p>
-                      {" "}
-                      <input
-                        type={"text"}
-                        placeholder="delivery :yes/no"
-                        onChange={(e) => {
-                          setDelivery(e.target.value);
-                        }}
-                      ></input>
-                    </p>{" "}
-                    <p>
-                      {" "}
-                      <input
-                        type={"text"}
-                        placeholder="state:new/used"
-                        onChange={(e) => {
-                          setState(e.target.value);
-                        }}
-                      ></input>
-                    </p>
-                    <input
-                      type="text"
-                      placeholder="add imge"
-                      onChange={(e) => {
-                        setImg(e.target.value);
-                      }}
-                    ></input>
-                    <br></br>
-                    <Button
-                      variant="warning"
-                      onClick={() => {
-                        setAdd(false);
-                      }}
-                    >
-                      {" "}
-                      <ArrowBackOutlinedIcon />
-                      back
-                    </Button>
-                    {"    "}
-                    <Button
-                      variant="success"
-                      onClick={() => {
-                        AddProduct();
-                        setAdd(false);
-                      }}
-                    >
-                      {" "}
-                      <AddCircleOutlineOutlinedIcon />
-                    </Button>
-                  </Card.Footer>
-                </Card>
-              </>
-            ) : (
-              <>
-                {"  "}
-                <Button
-                  className="btnheader icon"
-                  
-                  variant="primary"
-                  onClick={() => {
-                    setAdd(true);
-                  }}
-                >
-                  {" "}
-                  <AddCircleOutlineOutlinedIcon />
-                  Product
-                </Button>
-              </>
-            )
-          ) : (
-            <></>
-          )}
-        </div> */}
       </div>
       <div className="product">
         {products &&
@@ -363,7 +186,7 @@ const Dashboard = () => {
                       <p > manu facturing year: {product.manufacturingyear}</p>
                       <p> price: {product.price}$</p>
                     </Card.Text>
-                    {/* <img className="imgbody" src="Screenshot_2.png"></img> */}
+                    
                     <Button
                       variant="outline-primary"
                       onClick={() => {
