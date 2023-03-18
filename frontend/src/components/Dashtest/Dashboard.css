@@ -6,6 +6,7 @@
   padding: 10px;
   font-weight: bold;
   text-shadow: 1px black;
+  margin-top: 1vh;
 }
 .headerDashbord {
   display: flex;
@@ -31,7 +32,11 @@
   border: none;
   color: #1b9bff;
 }
-
+.new-nav{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
 
 .bodycard {
   position: relative;
@@ -53,6 +58,8 @@
   height: 20vh;
   text-align: center;
   z-index: 1;
+  right:3vw;
+  left: 3vw;
   transition: top 0.9s ease;
   opacity: 0;
 }
@@ -144,6 +151,22 @@ color: blue;
   text-align: center;
   margin-left: 3vw;
 }
+@media screen and (max-width: 750px) {
+  .description2 {
+    position: absolute;
+    /* background-color: #10beb2; */
+    top: 0px;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: #0082ef;
+    height: 20vh;
+    text-align: center;
+    z-index: 1;
+    transition: top 0.9s ease;
+    opacity: 0;
+  }
+}
 @media screen and (max-width: 630px) {
   .product {
     color: #0082ef;
@@ -181,6 +204,7 @@ color: blue;
     opacity: 0;
     transition: opacity 0.9s ease;
   }
+  
 }
 @media screen and (max-width: 471px) {
   .product {
@@ -283,6 +307,7 @@ color: blue;
   .label {
     display: inline;
     font-size: 14px;
+    opacity: 0;
   }
   .select {
     width: 55px;

@@ -20,3 +20,22 @@
 .Row{
     color: black;
 }
+.registarform{
+    margin-top: 100px;
+    border: 1px solid;
+    width:90%;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    grid-template-columns: 1fr;
+    align-content: center;
+    align-items: center;
+    border-radius: 4%;
+
+}
+.lebelregistar{
+    text-align: center;
+}

@@ -16,13 +16,18 @@ height: 33px;
 border: none;
 width: 4vh;
 color: #0082ef;
-padding: 2px;
+font-weight: bold;
 }
 .pPrice{
     margin: 0;
 }
 .bodycard:hover {
     opacity: 1;
+  }
+  .cardcart{
+    display: flex;
+    flex-direction: row;
+
   }
 @media screen and (max-width: 630px) {
     .product{

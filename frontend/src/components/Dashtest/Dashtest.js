@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext,useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Card } from "react-bootstrap";
 import "./Dashboard.css";
@@ -8,11 +8,14 @@ import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOu
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import { UserContext } from "../../App";
 import './Dashboard.css'
 const Dashboard = () => {
+  const { cartL ,setProducts,products} = useContext(UserContext);
+
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
-  const [products, setProducts] = useState("");
+  // const [products, setProducts] = useState("");
   const [userId, setUserId] = useState("");
   const [add, setAdd] = useState(false);
   //? == productSchema ======================
@@ -166,7 +169,7 @@ const Dashboard = () => {
   //?====Deleteproduct return ===========
   return (
     <div>
-      <div className="headerDashbord">
+      {/* <div className="headerDashbord">
         <div className="list">
           
           <label className="label"> category:</label>
@@ -341,7 +344,7 @@ const Dashboard = () => {
             <></>
           )}
         </div>
-      </div>
+      </div> */}
       <div className="product">
         {products &&
           products.map((product, i) => {
@@ -364,7 +367,7 @@ const Dashboard = () => {
                     <Card.Text  className="description2">
                       {product.description}
                       <p > manu facturing year: {product.manufacturingyear}</p>
-                      <p> price: {product.price}$</p>
+                      <p> price:{parseInt(product.price, 10) }$</p>
                     </Card.Text>
                     {/* <img className="imgbody" src="Screenshot_2.png"></img> */}
   <div class="overlay2"></div>

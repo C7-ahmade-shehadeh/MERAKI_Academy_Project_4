@@ -88,11 +88,12 @@ const Register = () => {
   return (
     <div className="Register">
       <p className="HR">Register</p>
-      <Form>
+      <Form className="registarform">
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Email</Form.Label>
+            <Form.Label >Email</Form.Label>
             <Form.Control
+            className="lebelregistar"
               type="email"
               placeholder="Enter email"
               onChange={(e) => {
@@ -101,8 +102,9 @@ const Register = () => {
             />
           </Form.Group>
           <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label >Password</Form.Label>
             <Form.Control
+            className="lebelregistar"
               type="password"
               placeholder="Password"
               onChange={(e) => {
@@ -112,8 +114,9 @@ const Register = () => {
             />
           </Form.Group>
           <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>password confirmation</Form.Label>
+            <Form.Label >password confirmation</Form.Label>
             <Form.Control
+            className="lebelregistar"
               type="password"
               placeholder="Rewrite your Password"
               onChange={(e) => {
@@ -128,8 +131,9 @@ const Register = () => {
         </Row>
         <Row className="mb-3">
           <Col>
-            <Form.Label>firstName</Form.Label>
+            <Form.Label >firstName</Form.Label>
             <Form.Control
+            className="lebelregistar"
               placeholder="First name"
               onChange={(e) => {
                 setFirstname(e.target.value);
@@ -137,8 +141,9 @@ const Register = () => {
             />
           </Col>
           <Col>
-            <Form.Label>lastName</Form.Label>
+            <Form.Label >lastName</Form.Label>
             <Form.Control
+            className="lebelregistar"
               placeholder="Last name"
               onChange={(e) => {
                 setLastname(e.target.value);
@@ -155,7 +160,7 @@ const Register = () => {
               setCity(e.target.value);
             }}
           >
-            <Form.Label>City</Form.Label>
+            <Form.Label >City</Form.Label>
             <Form.Control />
           </Form.Group>
 
@@ -166,34 +171,31 @@ const Register = () => {
               setAge(e.target.value);
             }}
           >
-            <Form.Label>age</Form.Label>
+            <Form.Label >age</Form.Label>
             <Form.Control />
           </Form.Group>
           <Form.Group
+          className="lebelregistar"
             as={Col}
+            
             controlId="formGridZip"
             onChange={(e) => {
               setPhoneNumber(e.target.value);
             }}
           >
-            <Form.Label>phoneNumber</Form.Label>
+            <Form.Label >phoneNumber</Form.Label>
             <Form.Control />
           </Form.Group>
         </Row>
-
+<div className="btnlogin">
         <Button variant="primary" onClick={handelRegister}>
           Submit
         </Button>
-      </Form>
-     
-      {done ? <p className="done">Register Done go to <button onClick={(e) => {
-         
-         navigate("/Login");
-       }}>login</button> </p> :<></> }
-     
-      {err ? <p className="faild">{statusregister}</p> :<></> }
-      <GoogleOAuthProvider clientId="623758713896-qs98f7ph84a1pgflgvg84up6i825a8mv.apps.googleusercontent.com">
-        <GoogleLogin
+        </div>
+        <div className="googel">
+      <GoogleOAuthProvider 
+      clientId="623758713896-qs98f7ph84a1pgflgvg84up6i825a8mv.apps.googleusercontent.com">
+        <GoogleLogin 
   onSuccess={credentialResponse => {
     console.log(credentialResponse);
     const token =credentialResponse.credential
@@ -208,6 +210,15 @@ const Register = () => {
 />
 
         </GoogleOAuthProvider>
+        </div>
+      </Form>
+     
+      {done ? <p className="done">Register Done go to <button onClick={(e) => {
+         
+         navigate("/Login");
+       }}>login</button> </p> :<></> }
+     
+      {err ? <p className="faild">{statusregister}</p> :<></> }
     </div>
   );
 };

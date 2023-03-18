@@ -8,3 +8,30 @@
     text-align: center;
 
 }
+
+.loginform{
+    margin-top: 100px;
+    border: 1px solid;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    grid-template-columns: 1fr;
+    align-content: center;
+    align-items: center;
+    border-radius: 4%;
+
+}
+.googel{
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1vh;
+    
+    
+}
+.btnlogin{
+    padding-bottom: 1vh;
+
+}

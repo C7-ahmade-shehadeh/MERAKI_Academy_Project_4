@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext,useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Card } from "react-bootstrap";
 import "./Dashboard.css";
@@ -7,11 +7,15 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import { UserContext } from "../../App";
+
 import './Dashboard.css'
 const Dashboard = () => {
+  const { cartL ,setProducts,products} = useContext(UserContext);
+
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
-  const [products, setProducts] = useState("");
+  // const [products, setProducts] = useState("");
   const [userId, setUserId] = useState("");
   const [add, setAdd] = useState(false);
   //? == productSchema ======================
@@ -166,7 +170,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className="headerDashbord">
-        <div className="list">
+        {/* <div className="list">
           
           <label className="label"> category:</label>
           <select
@@ -183,8 +187,8 @@ const Dashboard = () => {
             <option value="Perfumes and makeup">Perfumes and makeup</option>
             <option value="Cap and scarf">Cap and scarf</option>
           </select>
-</div>
-<div className="headarsearch">
+</div> */}
+{/* <div className="headarsearch">
           <label>
             <i>
               {" "}
@@ -216,7 +220,7 @@ const Dashboard = () => {
             id="category"
             onClick={(e) => {
               const kind = e.target.value;
-              searchkind(kind);
+              setKind(kind);
             }}
           >
             <option value="clothes">clothes</option>
@@ -339,7 +343,7 @@ const Dashboard = () => {
           ) : (
             <></>
           )}
-        </div>
+        </div> */}
       </div>
       <div className="product">
         {products &&

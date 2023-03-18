@@ -10,12 +10,17 @@ import Cart from "./components/Cart/Cart";
 import Dashtest from "./components/Dashtest/Dashtest";
 export const UserContext =createContext()
 function App() {
+  const [products, setProducts] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [emaleName, setEmaleName] = useState("");
+
   const [cartL, setCartL] = useState(0)
 //E-Commerce Website }
 
   return (
     <div className="App">
-      <UserContext.Provider value={{cartL,setCartL}}>
+      <UserContext.Provider
+       value={{emaleName, setEmaleName,photo, setPhoto,cartL,setCartL,setProducts,products}}>
       <header className="App-header">
        
       </header>

@@ -122,14 +122,14 @@ const Cart = () => {
           cart &&
           cart.map((elem, i) => {
             return (
-              <Card key={elem.product._id} className="text-center">
-                <Card.Header>{elem.product.kind}</Card.Header>
+              <Card key={elem.product._id} className="text-center cardcart">
+                {/* <Card.Header>{elem.product.kind}</Card.Header> */}
 
-                <Card.Body className="bodycard">
-                  <Card.Title>{elem.product.name}</Card.Title>
+                <Card.Body className="bodycardcart">
+                  {/* <Card.Title>{elem.product.name}</Card.Title> */}
                   <Card.Text>
                     {elem.product.description}
-                    <p> manufacturingyear: {elem.product.manufacturingyear}</p>
+                    {/* <p> manufacturingyear: {elem.product.manufacturingyear}</p> */}
                     <div className="price">
                       <button
                         className="btnprice"
@@ -176,9 +176,9 @@ const Cart = () => {
                     <DeleteOutlineOutlinedIcon />
                   </Button>
                 </Card.Body>
-                <Card.Footer className="text-muted">
+                {/* <Card.Footer className="text-muted">
                   delivery: {elem.product.delivery} state: {elem.product.state}
-                </Card.Footer>
+                </Card.Footer> */}
                 <Card.Img
                   variant="bottom"
                   src={elem.product.img}
