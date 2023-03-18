@@ -4,7 +4,7 @@ import { Button, Card } from "react-bootstrap";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import { UserContext } from "../../App";
 import "./Cart.css";
 //!=====================
@@ -191,6 +191,8 @@ const Cart = () => {
           <></>
         )}
       </div>
+  <div class="button2"><a href="#"> <KeyboardDoubleArrowUpIcon/> </a></div>
+
     </div>
   );
 };

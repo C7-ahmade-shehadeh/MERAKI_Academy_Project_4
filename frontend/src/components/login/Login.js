@@ -61,7 +61,9 @@ const Login = () => {
 
         localStorage.setItem("role", role);
         localStorage.setItem("token", token);
-        navigate("/Dashboard");
+        console.log("role: ", role);
+        {role ==  'USER' ? navigate("/Dashtest"):
+        navigate("/Dashboard")}
         setDone(true);
       })
       .catch((err) => {
@@ -74,13 +76,6 @@ const Login = () => {
   return (
     // <Container>
       <div className="Login">
-      {/* <p className="hl">login</p>
-      {userObj && (
-        <div>
-          <img src={userObj.picture}></img>
-          <p>{userObj.name}</p>
-        </div>
-      )} */}
       <Form className="loginform">
         <Row>
           <div>

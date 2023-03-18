@@ -1,10 +1,16 @@
 .total{
-    background: #0082ef;
+    background-image: linear-gradient(blue,#0CF8E5);
     color: white;
     font-size: x-large;
-    border-radius: 13px;
+    border-radius: 10px;
     border: solid 1px;
 height: 33px;
+
+text-align: center;
+}
+.total p{
+   
+    margin-top: 0;
 }
 .price{
     display: flex;

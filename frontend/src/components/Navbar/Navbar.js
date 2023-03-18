@@ -24,8 +24,6 @@ const [add, setAdd] = useState(false);
   const { cartL ,setProducts,emaleName,
     photo} = useContext(UserContext);
   const role =localStorage.getItem('role')
-  console.log("cartl: ", cartL);
-  console.log("role: ", role);
   useEffect(() => {
     axios
       .get(`http://localhost:5000/product`, {
@@ -34,11 +32,9 @@ const [add, setAdd] = useState(false);
         },
       })
       .then((res) => {
-        console.log('res',res);
         res.data.result.forEach(element => {
-          console.log('element.kind',element.kind);
-          // setCat(cat=>[...cat,element.kind])
-          console.log(!(cat.includes(element.kind)));
+         
+         
           if (!(cat.includes(element.kind))) {
             cat.push(element.kind)
           }

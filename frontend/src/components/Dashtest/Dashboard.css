@@ -125,11 +125,11 @@ color: blue;
   border: none;
   font-size: large;
   border-radius: 20px;
-  width: 25vw;
+  width: 20vw;
   text-align: center;
 }
 .inputsearch :focus {
-  width: 200px;
+  width: 150px;
 }
 .headarsearch {
   border-radius: 20px;
