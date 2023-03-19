@@ -29,7 +29,7 @@ function App() {
    
       <Routes>
 <Route path='/Register' element={<Register/>} />
-<Route path='/Login' element={<Login/>}/>
+<Route path='/Login' element={<Login isAuthenticated={true}/>}/>
 <Route path='/Dashboard' element={<Dashboard/>}/>
 <Route path='/Cart' element={<Cart/>}/>
 <Route path='/Dashtest' element={<Dashtest/>}/>

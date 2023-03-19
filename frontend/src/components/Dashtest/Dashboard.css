@@ -32,12 +32,6 @@
   border: none;
   color: #1b9bff;
 }
-.new-nav{
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
 .bodycard {
   position: relative;
   height: 45vh;
@@ -121,13 +115,7 @@ color: blue;
 .bodycard:hover .cardTitle2 {
   opacity: 1;
 }
-.inputsearch {
-  border: none;
-  font-size: large;
-  border-radius: 20px;
-  width: 20vw;
-  text-align: center;
-}
+
 .inputsearch :focus {
   width: 150px;
 }
@@ -135,12 +123,7 @@ color: blue;
   border-radius: 20px;
   /* width: 200px; */
 }
-.select {
-  width: 80px;
-  border: none;
-  border-radius: 16px;
-  cursor: pointer;
-}
+
 .icon {
   cursor: pointer;
 }
@@ -204,7 +187,6 @@ color: blue;
     opacity: 0;
     transition: opacity 0.9s ease;
   }
-  
 }
 @media screen and (max-width: 471px) {
   .product {
@@ -312,8 +294,7 @@ color: blue;
   .select {
     width: 55px;
   }
-  .btnheader {
-  }
+  
 }
 @media screen and (max-width: 250px) {
   .product {

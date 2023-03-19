@@ -3,7 +3,7 @@ import { Nav, Button,Card } from "react-bootstrap";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import { UserContext } from "../../App";
 import "./Navbar.css";
 import axios from "axios";
@@ -16,8 +16,7 @@ import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 const Navbar = () => {
   const token = localStorage.getItem("token");
   // const [products, setProducts] = useState("");
-  const [kind, setKind] = useState("");
- const [name, setName] = useState("");
+  
 const [search2, setSearch2] = useState("");
 const [add, setAdd] = useState(false);
   const [cat, setCat] = useState([]);
@@ -81,7 +80,11 @@ const searchkind = (searchItem) => {
   return (
     <div>
       <div className="Navbar">
-       {photo ?  <img className="imglogo" src={photo}></img> : <img className="imglogo" src="Screenshot_2.png"></img>}
+       {photo ?
+         <img className="imglogo" 
+         src={photo}></img> :
+          <img className="imglogo" 
+          src="Screenshot_2.png"></img>}
        
        
         <div className="new-nav">
@@ -113,220 +116,77 @@ const searchkind = (searchItem) => {
           <input
             className="inputsearch"
             type={"text"}
-            placeholder="Search .."
+            placeholder={`Search ..`}
             onChange={(e) => {
               const searchval = e.target.value.toLocaleLowerCase();
               setSearch2(searchval);
             }}
           ></input>
           </div>
-        
-        {/* <div>
-          {console.log(role)}
-          {role == "UDMIN" ? (
-            add ? (
-              <div className="addproduct">
-                <Card className="text-center">
-                  <Card.Header as="h5">
-                  <label className="labelkind"> kind:</label>
-                  <select
-          className="selectadd"
-            name="category"
-            id="category"
-            onClick={(e) => {
-              const kind = e.target.value;
-              searchkind(kind);
-            }}
-          >
-          
-             <option value="clothes">clothes</option>
-            <option value="watch">watch</option>
-            <option value="Perfumes and makeup">Perfumes and makeup</option>
-            <option value="Cap and scarf">Cap and scarf</option> 
-          </select>
-          
-                  </Card.Header>
-                  <Card.Body>
-                    <Card.Title>
-                      <input
-                        type={"text"}
-                        placeholder="name .."
-                        onChange={(e) => {
-                          setName(e.target.value);
-                        }}
-                      ></input>
-                    </Card.Title >
-                    <Card.Text>
-                      <textarea
-                        type={"text"}
-                        placeholder="description .."
-                        onChange={(e) => {
-                          setDescription(e.target.value);
-                        }}
-                      ></textarea>
-                      <p>
-                        {" "}
-                        <input
-                          type={"text"}
-                          placeholder="manufacturingyear .."
-                          onChange={(e) => {
-                            setManufacturingyear(e.target.value);
-                          }}
-                        ></input>
-                      </p>
-                      <p>
-                        {" "}
-                        <input
-                          type={"text"}
-                          placeholder="price .."
-                          onChange={(e) => {
-                            setPrice(e.target.value);
-                          }}
-                        ></input>
-                      </p>
-                    </Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <p>
-                      {" "}
-                      <input
-                        type={"text"}
-                        placeholder="delivery :yes/no"
-                        onChange={(e) => {
-                          setDelivery(e.target.value);
-                        }}
-                      ></input>
-                    </p>{" "}
-                    <p>
-                      {" "}
-                      <input
-                        type={"text"}
-                        placeholder="state:new/used"
-                        onChange={(e) => {
-                          setState(e.target.value);
-                        }}
-                      ></input>
-                    </p>
-                    <input
-                      type="text"
-                      placeholder="add imge"
-                      onChange={(e) => {
-                        setImg(e.target.value);
-                      }}
-                    ></input>
-                    <br></br>
-                    <Button
-                      variant="warning"
-                      onClick={() => {
-                        setAdd(false);
-                      }}
-                    >
-                      {" "}
-                      <ArrowBackOutlinedIcon />
-                      back
-                    </Button>
-                    {"    "}
-                    <Button
-                      variant="success"
-                      onClick={() => {
-                        AddProduct();
-                        setAdd(false);
-                      }}
-                    >
-                      {" "}
-                      <AddCircleOutlineOutlinedIcon />
-                    </Button>
-                  </Card.Footer>
-                </Card>
-              </div>
-            ) : (
-              <>
-                {"  "}
-                <Link to="/Add" 
-              className="componentnav ">
-                <Button
-                  className="btnheader icon"
-                  
-                  variant="primary"
-                  onClick={() => {
-                    setAdd(true);
-                  }}
-                >
-                  {" "}
-                  <AddCircleOutlineOutlinedIcon />
-                  Product
-                </Button>
-              </Link>
-                
-              </>
-            )
-          ) : (
-            <></>
-          )}
-        </div> */}
       </div>
         {token ? (
           <>
             <div className="loginAndRegistar">
-              <Link to="/Register" relative="path"
-              className="componentnav ">
-                Register
-              </Link>
-
-              <Link to="/Login" className="componentnav ">
-                Login
-              </Link>
-             { role == 'USER' ?<Link to="/Dashtest" className="componentnav Dashboard">
+              { role == 'USER' ?
+              <>
+              
+             <>
+             <NavLink to="/Dashtest" className="componentnav Dashboard">
                 Dashboard
-              </Link>:
+              </NavLink>
+               <NavLink to="/Cart">
+               <button className="ShoppingIcon componentnav">
+                 <Badge badgeContent={cartL} max={9} color="info">
+                   <ShoppingCartOutlinedIcon className="ShoppingIcon" />
+                 </Badge>{" "}
+               </button>{" "}
+             </NavLink></>
+             <NavLink to="/login" className="componentnav out" 
+             onClick={()=>{
+              localStorage.removeItem('token')
+              setAdd(false)
+             }}>
+              logout
+              </NavLink>
+             </>
+              :
               <>
                <>
                 {"  "}
-                <Link to="/Add" 
+                <NavLink to="/Add" 
               className="componentnav ">
-                <Button
-                  className="btnheader icon"
-                  
-                  variant="primary"
-                  onClick={() => {
-                   
-                  }}
-                >
-                  {" "}
-                  <AddCircleOutlineOutlinedIcon />
+                <button className="btnheader ">
+                  <AddCircleOutlineOutlinedIcon/>
                   Product
-                </Button>
-              </Link>
+                </button>
+              </NavLink>
                 
               </>
-              <Link to="/Dashboard" className="componentnav ">
+              <NavLink to="/Dashboard" className="componentnav">
               Dashboard
-              </Link> </>}
+              </NavLink> 
+              <NavLink to="/login" className="componentnav out">
+              logout
+              </NavLink> 
               
               
-              <Link to="/Cart">
-                <button className="ShoppingIcon componentnav">
-                  <Badge badgeContent={cartL} max={9} color="info">
-                    <ShoppingCartOutlinedIcon className="ShoppingIcon" />
-                  </Badge>{" "}
-                </button>{" "}
-              </Link>
+              </>}
             </div>
           </>
         ) : (
           <>
             <div className=" loginAndRegistar">
-              <Link to="/Dashboard" className="componentnav Dashboard">
-                Dashboard
-              </Link>
+            <NavLink to="/Register" relative="path"
+              
+              className="componentnav ">
+                Register
+              </NavLink>
 
-              <Link to="/Cart">
-                <button className="ShoppingIcon">
-                  <Badge  badgeContent={cartL} max={9}>
-                    <ShoppingCartOutlinedIcon className="ShoppingIcon"  />
-                  </Badge>{" "}
-                </button>{" "}
-              </Link>
+              <NavLink exact to="/Login" className="componentnav ">
+               
+                Login
+              </NavLink>
+       
             </div>
           </>
         )}

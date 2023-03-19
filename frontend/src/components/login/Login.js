@@ -7,7 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwtDecode from "jwt-decode";
+import Carousel from 'react-bootstrap/Carousel';
 import { UserContext } from "../../App";
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import "./Login.css";
 
 const Login = () => {
@@ -76,6 +80,7 @@ const Login = () => {
   return (
     // <Container>
       <div className="Login">
+        
       <Form className="loginform">
         <Row>
           <div>
@@ -104,9 +109,6 @@ const Login = () => {
           </Form.Group>
           </div>
         </Row>
-
-        {/* //623758713896-qs98f7ph84a1pgflgvg84up6i825a8mv.apps.googleusercontent.com Client ID */}
-        {/* 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 Client secret */}
         <div className="btnlogin">
         <Button variant="primary" onClick={handelLogin}>
           Login
@@ -151,9 +153,66 @@ const Login = () => {
 
         {err ? <p className="faild">{loginError}</p> : <></>}
       </Form>
+      <Carousel className="slider">
+      <Carousel.Item>
+        <img
+          className="d-block w-100 imgslidar"
+         src=" Screenshot_2.png"       alt="First slide"
+        />
+        <Carousel.Caption>
+              <label className="labelslider">Connect with us:</label>
+        <div className="sliderTitle">
+            <form>
+<ul>
+<li><a href="https://www.facebook.com/ahmad.boreni.98"><FacebookOutlinedIcon/> Ahmad Emad</a> </li>
+<br></br>
+<li><a href="https://www.instagram.com/ahmad_boreni98/?fbclid=IwAR0Em89Y84qvlZmRbIoqYdVMnHEvGbq-Z-1KrzWoLCwXPEHXH4DkzckfGCc"> <InstagramIcon className="instgram"/>ahmad_boreni98</a> </li>
+<br></br>
+
+<li><a href="https://twitter.com/AhmadBoreni98?t=jrcme29gCPAXRShndZT2MQ&s=09&fbclid=IwAR0odFH_FIdV0z9Q2VOX9KlOlRPzJoxX0vQJDw_1z38KcttnawId3wMscoc"> <TwitterIcon/>@AhmadBoreni98</a> </li>
+
+</ul>
+</form>
+          <p className="sliderdis"></p>
+          </div>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 imgslidar2"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfypI4bPS-CveOMVLZr2glX2JljQ44RFyDFQ&usqp=CAU"
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+         
+          <p className="sliderTitle2">The finest types of clothes and the best prices.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 imgslidar2"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKdTlEYEcvYZFDtLlxvbQtIXMG6wuYP3Zt2g&usqp=CAU"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+         
+          <p className="sliderTitle4">
+           50% sale</p> 
+           <br></br>
+           <p className="sliderTitle3">of watches</p>
+          
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
     </div>
   );
 };
-{/* </Container> */}
+{/* </Container>
+{/* //623758713896-qs98f7ph84a1pgflgvg84up6i825a8mv.apps.googleusercontent.com Client ID */}
+        {/* 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 Client secret */}
+
+
 
 export default Login;

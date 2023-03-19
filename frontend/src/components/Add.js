@@ -52,9 +52,8 @@ const token=localStorage.getItem('token')
           });
       };
   return (
-    <div>Add
-
-
+    <div>
+      <p></p>
 <div>
         
          
@@ -71,7 +70,7 @@ const token=localStorage.getItem('token')
               setKind(kind);
             }}
           >
-          
+             <option value="clothes"></option>         
              <option value="clothes">clothes</option>
             <option value="watch">watch</option>
             <option value="Perfumes and makeup">Perfumes and makeup</option>

@@ -187,15 +187,7 @@ const Dashboard = () => {
                       <p> price: {product.price}$</p>
                     </Card.Text>
                     
-                    <Button
-                      variant="outline-primary"
-                      onClick={() => {
-                        console.log(product._id);
-                        addTocart(product._id);
-                      }}
-                    >
-                      <AddShoppingCartIcon />
-                    </Button>{" "}
+                    {" "}
                     {role == "UDMIN" ? (
                       <Button
                         variant="outline-danger"
@@ -206,7 +198,15 @@ const Dashboard = () => {
                         <DeleteOutlineOutlinedIcon />
                       </Button>
                     ) : (
-                      <></>
+                      <Button
+                      variant="outline-primary"
+                      onClick={() => {
+                        console.log(product._id);
+                        addTocart(product._id);
+                      }}
+                    >
+                      <AddShoppingCartIcon />
+                    </Button>
                     )}
                   </Card.Body>
                   <Card.Footer className="text-muted">

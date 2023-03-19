@@ -6,6 +6,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import { UserContext } from "../../App";
+
 import './Dashboard.css'
 const Dashboard = () => {
   const { cartL ,setProducts,products} = useContext(UserContext);
